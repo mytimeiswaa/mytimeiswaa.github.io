@@ -1,1 +1,76 @@
-<p style="background-color:red">Hello World!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p> 
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <table id="leaderboard" class="table">
+      	
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+var events  = ['Zap Zone', 'Halo'];
+var columns = ['#', 'Bro'].concat(events, ['Total']);
+var bros    = ['Ives', 'Haling', 'Kartik', 'Andrew'];
+
+var leaderboard = $('#leaderboard');
+
+function initTable()
+{
+	leaderboard.append($("<thead></thead><tbody></tbody>"));
+    leaderboard.find("thead").append($("<tr></tr>"));
+    var headerRow = leaderboard.find("thead").find("tr");
+    var body = leaderboard.find("tbody");
+    //headerRow.append($("<th>"+ 'sdff' +"</th>"));
+    addColumns(headerRow);
+    addRows(body);
+}
+
+function addColumns(row)
+{
+	for (var i = 0; i < columns.length; i++)
+    {
+    	row.append($("<th>"+ columns[i] +"</th>"));
+    }
+}
+
+function addRows(body)
+{
+	for (var y = 0; y < bros.length; y++)
+    {
+    	var row = $("<tr></tr>");
+        body.append(row);
+        row.append("<td>"+ (y+1) + "</td>");
+        row.append("<td>"+bros[y]+"</td>");
+    	for (var x = 0; x < events.length; x++)
+        {
+        	row.append("<td>"+ '<input type="number" />'+"</td>");
+            
+        }
+        row.append("<td>sum</td>");
+    }
+}
+
+initTable();
+
+</script>
+
+</body>
+</html>
