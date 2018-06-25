@@ -16,7 +16,8 @@
   <div class="row">
     <div class="col-sm-12">
       <table id="leaderboard" class="table">
-      	
+	      <thead></thead>
+        <tbody></tbody>
       </table>
     </div>
   </div>
@@ -24,20 +25,17 @@
 
 <script>
 var events  = ['Zap Zone', 'Halo'];
-var columns = ['#', 'Bro'].concat(events, ['Total']);
+var preColumns = ['#', 'Bro'];
+var numPreColumns = preColumns.length;
+var columns = preColumns.concat(events, ['Total']);
 var bros    = ['Ives', 'Haling', 'Kartik', 'Andrew'];
 
 var leaderboard = $('#leaderboard');
 
 function initTable()
 {
-	leaderboard.append($("<thead></thead><tbody></tbody>"));
-    leaderboard.find("thead").append($("<tr></tr>"));
-    var headerRow = leaderboard.find("thead").find("tr");
-    var body = leaderboard.find("tbody");
-    //headerRow.append($("<th>"+ 'sdff' +"</th>"));
-    addColumns(headerRow);
-    addRows(body);
+	//leaderboard.append($("<thead></thead><tbody></tbody>"));
+  
 }
 
 function addColumns(row)
@@ -65,7 +63,7 @@ function addRows(body)
     }
 }
 
-initTable();
+//initTable();
 	
 $(document).ready(function() {
 	$.ajax({
@@ -80,19 +78,35 @@ function processData(allText) {
   var allTextLines = allText.split(/\r\n|\n/);
   var headers = allTextLines[0].split(',');
   var lines = [];
+  
+  leaderboard.find("thead").append($("<tr></tr>"));
+  var headerRow = leaderboard.find("thead").find("tr");
+  var body = leaderboard.find("tbody");
+  //headerRow.append($("<th>"+ 'sdff' +"</th>"));
+  addColumns(headerRow);
+  //addRows(body);
 
   for (var i=1; i<allTextLines.length; i++) {
     var data = allTextLines[i].split(',');
     if (data.length == headers.length) {
 
+      var row = $("<tr></tr>");
+      body.append(row);
+      row.append($("<td>"+i+"</td>"));
+      row.append($("<td>"+data[0]+"</td>"));
+      var sum = 0;
       var tarr = [];
-      for (var j=0; j<headers.length; j++) {
-          tarr.push(headers[j]+":"+data[j]);
+      for (var j=1; j<headers.length; j++) {
+          //tarr.push(headers[j]+":"+data[j]);
+        row.append($("<td>"+ data[j] +"</td>"));
+        var score = parseInt(data[j]);
+        if (score != "NaN") sum += score;
       }
-      lines.push(tarr);
+      row.append($("<td>"+sum+"</td>"));
+      //lines.push(tarr);
     }
   }
-  alert(lines);
+  //alert(lines);
 }
 
 </script>
