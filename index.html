@@ -85,14 +85,16 @@ function processData(allText) {
   //headerRow.append($("<th>"+ 'sdff' +"</th>"));
   addColumns(headerRow);
   //addRows(body);
+  
+  var rows = [];
 
   for (var i=1; i<allTextLines.length; i++) {
     var data = allTextLines[i].split(',');
     if (data.length == headers.length) {
 
       var row = $("<tr></tr>");
-      body.append(row);
-      row.append($("<td>"+i+"</td>"));
+      //body.append(row);
+      row.append($("<td class='rank'>"+i+"</td>"));
       row.append($("<td>"+data[0]+"</td>"));
       var sum = 0;
       var tarr = [];
@@ -102,11 +104,43 @@ function processData(allText) {
         var score = parseInt(data[j]);
         if (!isNaN(score)) sum += score;
       }
-      row.append($("<td>"+sum+"</td>"));
-      //lines.push(tarr);
+      row.append($("<td class='score-sum'>"+sum+"</td>"));
+      rows.push(row);
     }
   }
-  //alert(lines);
+  
+  //Do sort and add
+  sort(body, rows);
+}
+	
+function sort(body, rows)
+{
+  for (var bro = 0; bro < bros.length; bro++)
+  {
+    var highRow = findHighestRow(rows);
+    highRow.find(".rank").html(bro + 1);
+    
+    var index = rows.indexOf(highRow);
+    rows.splice(index, 1);
+    body.append(row);
+  }
+}
+  
+function findHighestRow(rows)
+{
+  var returnVal = rows[0];
+  var returnSum = parseInt(returnVal.find(".score-sum").html());
+  for (var i = 0; i < rows.length; i++)
+  {
+    var sum = parseInt(rows[i].find(".score-sum").html());
+    if (sum > returnSum)
+    {
+      returnSum = sum;
+      returnVal = rows[i]
+    }
+  }
+  
+  return returnVal;
 }
 
 </script>
