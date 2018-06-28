@@ -1,150 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Here Come Dat Boi</title>
+  <title>Welcome!</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="theme.css">
+  
+  <style>
+  	body {
+    	background: url("https://i.giphy.com/media/peAFQfg7Ol6IE/giphy.webp");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    body, html {
+    	height: 100%;
+    }
+    .jumbotron {
+    	background: none;
+    }
+    
+    .text-white {
+    	color: rgb(200,200,200);
+    }
+  </style>
 </head>
 <body>
 
-
+<div class="jumbotron text-center text-white">
+  <h1>Welcome!</h1>
+  <p>To the most exciting bachelor party ever</p> 
+</div>
   
-<div class="container">
+<div class="container text-white">
   <div class="row">
+    <div class="col-sm-4">
+      <h3>We've got food...</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+      <h3>We've got fun...</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-8">
+      <h3>We've got booze...</h3>
+    </div>
+  </div>
+  <div class="row">
+  	<div class="col-sm-12">
+    	<h3 class="text-center">But most importantly...</h3>
+    </div>
     <div class="col-sm-12">
-      <table id="leaderboard" class="table">
-	      <thead></thead>
-        <tbody></tbody>
-      </table>
+    	<h2 class="text-center">WE'VE GOT BROS!</h2>
     </div>
   </div>
 </div>
-
-<script>
-var events  = ['Zap Zone', 'Halo','Telestrations','Drinking','BBQ'];
-var preColumns = ['#', 'Bro'];
-var numPreColumns = preColumns.length;
-var columns = preColumns.concat(events, ['Total']);
-var bros    = ['Ives', 'Haling', 'Kartik', 'Andrew'];
-
-var leaderboard = $('#leaderboard');
-
-function initTable()
-{
-	//leaderboard.append($("<thead></thead><tbody></tbody>"));
-  
-}
-
-function addColumns(row)
-{
-	for (var i = 0; i < columns.length; i++)
-    {
-    	row.append($("<th>"+ columns[i] +"</th>"));
-    }
-}
-
-function addRows(body)
-{
-	for (var y = 0; y < bros.length; y++)
-    {
-    	var row = $("<tr></tr>");
-        body.append(row);
-        row.append("<td>"+ (y+1) + "</td>");
-        row.append("<td>"+bros[y]+"</td>");
-    	for (var x = 0; x < events.length; x++)
-        {
-        	row.append("<td>"+ '0'+"</td>");
-            
-        }
-        row.append("<td>sum</td>");
-    }
-}
-
-//initTable();
-	
-$(document).ready(function() {
-	$.ajax({
-    type: "GET",
-    url: "scores.csv",
-    dataType: "text",
-    success: function(data) {processData(data);}
-  });
-});
-  
-function processData(allText) {
-  var allTextLines = allText.split(/\r\n|\n/);
-  var headers = allTextLines[0].split(',');
-  var lines = [];
-  
-  leaderboard.find("thead").append($("<tr></tr>"));
-  var headerRow = leaderboard.find("thead").find("tr");
-  var body = leaderboard.find("tbody");
-  //headerRow.append($("<th>"+ 'sdff' +"</th>"));
-  addColumns(headerRow);
-  //addRows(body);
-  
-  var rows = [];
-
-  for (var i=1; i<allTextLines.length; i++) {
-    var data = allTextLines[i].split(',');
-    if (data.length == headers.length) {
-
-      var row = $("<tr></tr>");
-      //body.append(row);
-      row.append($("<td class='rank'>"+i+"</td>"));
-      row.append($("<td>"+data[0]+"</td>"));
-      var sum = 0;
-      var tarr = [];
-      for (var j=1; j<headers.length; j++) {
-          //tarr.push(headers[j]+":"+data[j]);
-        row.append($("<td>"+ data[j] +"</td>"));
-        var score = parseInt(data[j]);
-        if (!isNaN(score)) sum += score;
-      }
-      row.append($("<td class='score-sum'>"+sum+"</td>"));
-      rows.push(row);
-    }
-  }
-  
-  //Do sort and add
-  sort(body, rows);
-}
-	
-function sort(body, rows)
-{
-  for (var bro = 0; bro < bros.length; bro++)
-  {
-    var highRow = findHighestRow(rows);
-    highRow.find(".rank").html(bro + 1);
-    
-    var index = rows.indexOf(highRow);
-    rows.splice(index, 1);
-    body.append(highRow);
-  }
-}
-  
-function findHighestRow(rows)
-{
-  var returnVal = rows[0];
-  var returnSum = parseInt(returnVal.find(".score-sum").html());
-  for (var i = 0; i < rows.length; i++)
-  {
-    var sum = parseInt(rows[i].find(".score-sum").html());
-    if (sum > returnSum)
-    {
-      returnSum = sum;
-      returnVal = rows[i]
-    }
-  }
-  
-  return returnVal;
-}
-
-</script>
 
 </body>
 </html>
