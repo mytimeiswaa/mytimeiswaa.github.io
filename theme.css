@@ -12,6 +12,24 @@ html, body {
   width: 100%;
 }
 
-.container {
-  background-color: rgba(255,255,255,.6); 
+
+
+.walubtn, .walubtn:focus {
+  background-color: #570A94;
+  border: 1px solid #570A94;
+  color: rgb(200,200,200);
+}
+
+.walubtn:hover {
+  background-color: yellow;
+  border: 1px solid #570A94;
+  color: #570A94;
+  font-weight: bold;
+}
+
+.scorecard {
+  border: 10px solid transparent;
+  padding: 15px;
+  border-image:url("https://mytimeiswaa.github.io/images/scorecard_border.png");
+  border-image-slice:10%;
 }

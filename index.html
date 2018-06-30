@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://mytimeiswaa.github.io/scripts/cookie.js"></script>
+  <script src="scripts/cookie.js"></script>
   
   <style>
   	body {
@@ -31,6 +31,9 @@
   </style>
 </head>
 <body>
+<div style="background:#25064B;color:yellow;font-weight:bold;text-align:right;padding-right:2px;padding-top:2px;">
+<p id="broDisplay"></p>
+</div>
 
 <div class="jumbotron text-center text-white">
   <h1>Welcome!</h1>
@@ -60,40 +63,22 @@
     <div class="col-sm-12">
     	<h2 class="text-center">WE'VE GOT BROS!</h2>
     </div>
-  </div>
-</div>
-                             
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">New Bro, Who Dis?</h4>
-        </div>
-        <div class="modal-body">
-          <p>I am...</p>
-          <input id="broNameInput" type="text"/>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Confirm</button>
-        </div>
-      </div>
-      
+    <div class="col-sm-12 scorecard">
+      <p>ASD</p>
     </div>
   </div>
-
+  
+  
+  
+</div>
+                             
 <script>
-  var broName = getCookie("broName");
-  if (broName == "")
-  {
-    $("#myModal").modal();
-    
-    $("#myModal").on('hidden.bs.modal', function () {
-            alert('Bro Name has been entered as "'+$("#broNameInput").val()+'"');
-    });
-  }
+	var broName = getCookie("broName");
+  
+	if (broName == "")
+		window.location.assign("welcome.html");
+		
+	$("#broDisplay").html("Welcome, "+broName+"!");
 </script>
 
 </body>

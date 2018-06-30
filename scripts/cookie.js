@@ -19,7 +19,11 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+var testCookies=[];
+testCookies["broName"] = "Kartik";
+
 function getCookie(cname) {
+  return testCookies[cname];
     var name = cname + "=";
     var ca = document.cookie.split(';');
     for(var i = 0; i < ca.length; i++) {
