@@ -30,6 +30,6 @@ html, body {
 .scorecard {
   border: 10px solid transparent;
   padding: 15px;
-  border-image:url("https://mytimeiswaa.github.io/images/scorecard_border.png");
+  border-image:url("https://mytimeiswaa.github.io/images/scorecard_border.png") round;
   border-image-slice:10%;
 }
