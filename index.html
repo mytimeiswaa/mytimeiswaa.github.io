@@ -61,7 +61,7 @@
   <div id="scorecard-body" class="row">
   	
     <div id="scorecard-template" class="col-sm-12 scorecard" style="display:none;">
-      <img src="images/waluigi-portrait.png" style="position:absolute;top:5px;left:20px;"/>
+      <img src="images/waluigi-portrait.png" width="64" height="64" class="character-portrait" style="position:absolute;top:5px;left:20px;"/>
       <img src="images/starsprite.png" width="32" height="32" style="position: absolute; top:5px; left: 100px;"/>
       <img src="images/coin.png" width="32" height="32" style="position: absolute; top:40px; left: 100px;"/>
       <img src="images/transparent.png" class="mp-number mp-times" style="position:absolute; top:9px; left:135px;"/>
@@ -100,6 +100,7 @@
       for (var i = 0; i < characters.length; i++) {
         var scorecard = $("#scorecard-template").clone(false).appendTo("#scorecard-body").show();
         scorecard.attr("id", "scorecard-"+escapeName(characters[i]));
+        scorecard.find(".character-portrait").attr("src", "images/profiles/"+characters[i].toLowerCase()+".png");
         setScore(scorecard, scoreData[characters[i]]);
       }
     });
