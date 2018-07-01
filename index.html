@@ -95,8 +95,8 @@
     $("#scorecard-template").clone(false).appendTo("#scorecard-body").show();
   }
   
-  getBros(function (data) {
-    alert(data);
+  getBros(function (fullNames, names, characters) {
+    alert("full names = "+fullNames+"\nnames = "+names+"\ncharacters = "+characters);
   });
 </script>
 

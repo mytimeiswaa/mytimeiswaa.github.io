@@ -1,0 +1,38 @@
+{
+  "Waluigi" : {
+    "stars" : 0,
+    "coins" : 0
+  },
+  "Luigi"   : {
+    "stars" : 0,
+    "coins" : 0
+  },
+  "Boo"   : {
+    "stars" : 0,
+    "coins" : 0
+  },
+  "Koopa Kid"   : {
+    "stars" : 0,
+    "coins" : 0
+  },
+  "Toadette"   : {
+    "stars" : 0,
+    "coins" : 0
+  },
+  "Wario"   : {
+    "stars" : 0,
+    "coins" : 0
+  },
+  "Donkey Kong"   : {
+    "stars" : 0,
+    "coins" : 0
+  },
+  "Baby Luigi"   : {
+    "stars" : 0,
+    "coins" : 0
+  },
+  "Peach"   : {
+    "stars" : 0,
+    "coins" : 0
+  },
+}
