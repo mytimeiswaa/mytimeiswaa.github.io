@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="scripts/cookie.js"></script>
+  <link rel="stylesheet" href="theme.css">
   
   <style>
   	body {
@@ -28,42 +29,52 @@
     .text-white {
     	color: rgb(200,200,200);
     }
+    
+    .navbar-nav > li {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-<div style="background:#25064B;color:yellow;font-weight:bold;text-align:right;padding-right:2px;padding-top:2px;">
-<p id="broDisplay"></p>
-</div>
 
-<div class="jumbotron text-center text-white">
-  <h1>Welcome!</h1>
-  <p>To the most exciting bachelor party ever</p> 
-</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Broball Summit</a>
+      <p id="broDisplay" class="navbar-brand pull-right"></p>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#"><img src="images/starspace.png"/> Scores</a></li>
+      <li><a href="minigames.html"><img src="images/minigame.png"/> Mini-games</a></li>
+      <li><a href="#"><img src="images/toadicon.png"/> Character</a></li>
+      <li><a href="#"><img src="images/chanceTime.png"/> ???</a></li>
+    </ul>
+  </div>
+</nav>
   
 <div class="container text-white">
+  
+  <h2 class="text-white">Leaderboard</h2>
+  
   <div class="row">
-    <div class="col-sm-4">
-      <h3>We've got food...</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-4">
-      <h3>We've got fun...</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4 col-sm-offset-8">
-      <h3>We've got booze...</h3>
-    </div>
-  </div>
-  <div class="row">
-  	<div class="col-sm-12">
-    	<h3 class="text-center">But most importantly...</h3>
-    </div>
-    <div class="col-sm-12">
-    	<h2 class="text-center">WE'VE GOT BROS!</h2>
+  	
+    <div class="col-sm-12 scorecard">
+      <img src="images/waluigi-portrait.png" style="position:absolute;top:5px;left:20px;"/>
+      <img src="images/starsprite.png" width="32" height="32" style="position: absolute; top:5px; left: 100px;"/>
+      <img src="images/coin.png" width="32" height="32" style="position: absolute; top:40px; left: 100px;"/>
+      <img src="images/transparent.png" class="mp-number mp-times" style="position:absolute; top:9px; left:135px;"/>
+      <img src="images/transparent.png" class="mp-number mp-times" style="position:absolute; top:41px; left:135px;"/>
+      
+      <img src="images/transparent.png" class="mp-number mp-number-6" style="position:absolute; top:9px; left:167px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-6" style="position:absolute; top:9px; left:199px;"/>
+      
+      <img src="images/transparent.png" class="mp-number mp-number-6" style="position:absolute; top:41px; left:167px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-6" style="position:absolute; top:41px; left:199px;"/>
     </div>
     <div class="col-sm-12 scorecard">
+      <p>ASD</p>
+      <p>ASD</p>
       <p>ASD</p>
     </div>
   </div>

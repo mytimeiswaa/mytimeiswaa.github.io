@@ -27,9 +27,42 @@ html, body {
   font-weight: bold;
 }
 
+/*
 .scorecard {
   border: 10px solid transparent;
-  padding: 15px;
   border-image:url("https://mytimeiswaa.github.io/images/scorecard_border.png") round;
-  border-image-slice:10%;
+  border-image-slice:10% fill;
+  border-radius:20px;
+  margin-top:10px;
+}
+*/
+
+.scorecard {
+  background: url("images/placard.png");
+  background-size: 100% 100%;
+  max-width: 300px;
+  max-height:120px;
+  width: 300px;
+  height:80px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.mp-number {
+  background: url('images/numbersbig.png');
+  width: 31px;
+  height: 29px;
+  background-repeat: no-repeat;
+}
+
+.mp-number-6 {
+   background-position: -32px -30px;
+}
+
+.mp-times {
+  background-position: -160px -30px;
 }
