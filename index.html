@@ -67,13 +67,13 @@
       <img src="images/transparent.png" class="mp-number mp-times" style="position:absolute; top:9px; left:135px;"/>
       <img src="images/transparent.png" class="mp-number mp-times" style="position:absolute; top:41px; left:135px;"/>
       
-      <img src="images/transparent.png" class="mp-number mp-number-1" style="position:absolute; top:9px; left:167px;"/>
-      <img src="images/transparent.png" class="mp-number mp-number-2" style="position:absolute; top:9px; left:199px;"/>
-      <img src="images/transparent.png" class="mp-number mp-number-2" style="position:absolute; top:9px; left:231px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-1 star" style="position:absolute; top:9px; left:167px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-2 star"  style="position:absolute; top:9px; left:199px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-2 star"   style="position:absolute; top:9px; left:231px;"/>
       
-      <img src="images/transparent.png" class="mp-number mp-number-6" style="position:absolute; top:41px; left:167px;"/>
-      <img src="images/transparent.png" class="mp-number mp-number-8" style="position:absolute; top:41px; left:199px;"/>
-      <img src="images/transparent.png" class="mp-number mp-number-empty" style="position:absolute; top:41px; left:231px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-6 coin" style="position:absolute; top:41px; left:167px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-8 coin" style="position:absolute; top:41px; left:199px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-empty coin" style="position:absolute; top:41px; left:231px;"/>
     </div>
   </div>
   
@@ -90,18 +90,24 @@
 	$("#broDisplay").html("Welcome, "+broName+"!");
   
   //var template = $("#scorecard-template").clone(false);
-  for (var i=0; i < 11; i++)
-  {
-    $("#scorecard-template").clone(false).appendTo("#scorecard-body").show();
-  }
+  //for (var i=0; i < 11; i++)
+  //{
+  //  $("#scorecard-template").clone(false).appendTo("#scorecard-body").show();
+  //}
   
   getBros(function (fullNames, names, characters) {
-    alert("full names = "+fullNames+"\nnames = "+names+"\ncharacters = "+characters);
+    getScores(function (scoreData) {
+      for (var i = 0; i < characters.length; i++) {
+        var scorecard = $("#scorecard-template").clone(false).appendTo("#scorecard-body").show();
+        scorecard.attr("id", "scorecard-"+escapeName(characters[i]));
+        setScore(scorecard, scoreData[characters[i]]);
+      }
+    });
+    
+    //setScore($("#scorecard-"+"Waluigi"), {stars: 0, coins:10});
   });
   
-  getScores(function (data) {
-    alert(data);
-  });
+  
 </script>
 
 </body>

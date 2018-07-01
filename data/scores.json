@@ -1,38 +1,42 @@
 {
   "Waluigi" : {
     "stars" : 0,
-    "coins" : 0
+    "coins" : 10
   },
   "Luigi"   : {
     "stars" : 0,
-    "coins" : 0
+    "coins" : 10
   },
   "Boo"   : {
     "stars" : 0,
-    "coins" : 0
+    "coins" : 10
   },
   "Koopa Kid"   : {
     "stars" : 0,
-    "coins" : 0
+    "coins" : 10
   },
   "Toadette"   : {
     "stars" : 0,
-    "coins" : 0
+    "coins" : 10
   },
   "Wario"   : {
     "stars" : 0,
-    "coins" : 0
+    "coins" : 10
   },
   "Donkey Kong"   : {
     "stars" : 0,
-    "coins" : 0
+    "coins" : 10
   },
   "Baby Luigi"   : {
     "stars" : 0,
-    "coins" : 0
+    "coins" : 10
   },
   "Peach"   : {
     "stars" : 0,
-    "coins" : 0
+    "coins" : 10
+  },
+  "Blooper"   : {
+    "stars" : 0,
+    "coins" : 10
   }
 }
