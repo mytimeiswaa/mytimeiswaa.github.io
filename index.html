@@ -57,25 +57,22 @@
   
   <h2 class="text-white">Leaderboard</h2>
   
-  <div class="row">
+  <div id="scorecard-body" class="row">
   	
-    <div class="col-sm-12 scorecard">
+    <div id="scorecard-template" class="col-sm-12 scorecard" style="display:none;">
       <img src="images/waluigi-portrait.png" style="position:absolute;top:5px;left:20px;"/>
       <img src="images/starsprite.png" width="32" height="32" style="position: absolute; top:5px; left: 100px;"/>
       <img src="images/coin.png" width="32" height="32" style="position: absolute; top:40px; left: 100px;"/>
       <img src="images/transparent.png" class="mp-number mp-times" style="position:absolute; top:9px; left:135px;"/>
       <img src="images/transparent.png" class="mp-number mp-times" style="position:absolute; top:41px; left:135px;"/>
       
-      <img src="images/transparent.png" class="mp-number mp-number-6" style="position:absolute; top:9px; left:167px;"/>
-      <img src="images/transparent.png" class="mp-number mp-number-6" style="position:absolute; top:9px; left:199px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-1" style="position:absolute; top:9px; left:167px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-2" style="position:absolute; top:9px; left:199px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-2" style="position:absolute; top:9px; left:231px;"/>
       
       <img src="images/transparent.png" class="mp-number mp-number-6" style="position:absolute; top:41px; left:167px;"/>
-      <img src="images/transparent.png" class="mp-number mp-number-6" style="position:absolute; top:41px; left:199px;"/>
-    </div>
-    <div class="col-sm-12 scorecard">
-      <p>ASD</p>
-      <p>ASD</p>
-      <p>ASD</p>
+      <img src="images/transparent.png" class="mp-number mp-number-8" style="position:absolute; top:41px; left:199px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-empty" style="position:absolute; top:41px; left:231px;"/>
     </div>
   </div>
   
@@ -90,6 +87,12 @@
 		window.location.assign("welcome.html");
 		
 	$("#broDisplay").html("Welcome, "+broName+"!");
+  
+  //var template = $("#scorecard-template").clone(false);
+  for (var i=0; i < 11; i++)
+  {
+    $("#scorecard-template").clone(false).appendTo("#scorecard-body").show();
+  }
 </script>
 
 </body>

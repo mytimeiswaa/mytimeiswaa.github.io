@@ -59,8 +59,48 @@ h2 {
   background-repeat: no-repeat;
 }
 
+.mp-number-0 {
+   background-position: 0px 0px;
+}
+
+.mp-number-1 {
+   background-position: -32px 0px;
+}
+
+.mp-number-2 {
+   background-position: -64px 0px;
+}
+
+.mp-number-3 {
+   background-position: -96px 0px;
+}
+
+.mp-number-4 {
+   background-position: -128px 0px;
+}
+
+.mp-number-5 {
+   background-position: 0px -30px;
+}
+
 .mp-number-6 {
    background-position: -32px -30px;
+}
+
+.mp-number-7 {
+   background-position: -64px -30px;
+}
+
+.mp-number-8 {
+   background-position: -96px -30px;
+}
+
+.mp-number-9 {
+   background-position: -128px -30px;
+}
+
+.mp-number-empty {
+  background-position: -192px 0px;
 }
 
 .mp-times {
