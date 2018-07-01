@@ -28,7 +28,7 @@ function getBros(callback)
 
 function getScores(callback) {
   $(document).ready(function() {
-    $.getJSON("https://mytimeiswaa.github.io/data/scores.txt", function(data, stat) {
+    $.getJSON("https://mytimeiswaa.github.io/data/scores.json", function(data, stat) {
       alert("ASD");
       callback(data);
     });
