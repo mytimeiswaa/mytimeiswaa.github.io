@@ -28,8 +28,13 @@ function getBros(callback)
 
 function getScores(callback) {
   $(document).ready(function() {
-    $.getJSON("https://mytimeiswaa.github.io/data/scores.json", function(data) {
-      callback(data);
+    $.ajax({
+      cache: false,
+      dataType: "json",
+      url: "https://mytimeiswaa.github.io/data/scores.json",
+      success: function(data) {
+        callback(data);
+      }
     });
   });
 }

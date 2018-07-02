@@ -8,27 +8,27 @@
     "coins" : 10
   },
   "Boo"   : {
-    "stars" : 0,
+    "stars" : 4,
     "coins" : 10
   },
   "Koopa Kid"   : {
-    "stars" : 0,
+    "stars" : 4,
     "coins" : 10
   },
   "Toadette"   : {
-    "stars" : 0,
+    "stars" : 4,
     "coins" : 10
   },
   "Wario"   : {
-    "stars" : 0,
-    "coins" : 10
+    "stars" : 4,
+    "coins" : 12
   },
   "Donkey Kong"   : {
     "stars" : 0,
     "coins" : 10
   },
   "Baby Luigi"   : {
-    "stars" : 0,
+    "stars" : 6,
     "coins" : 10
   },
   "Peach"   : {
@@ -40,7 +40,7 @@
     "coins" : 10
   },
   "Dry Bones"   : {
-    "stars" : 0,
+    "stars" : 7,
     "coins" : 10
   }
 }

@@ -95,14 +95,21 @@
   //  $("#scorecard-template").clone(false).appendTo("#scorecard-body").show();
   //}
   
+  //$("#scorecard-body").hide();
+  
   getBros(function (fullNames, names, characters) {
     getScores(function (scoreData) {
+      /*scoreData.sort(function (a, b) {
+        return (b.stars == a.stars) ? (b.coins - a.coins) : (b.stars - a.stars);
+      });*/
       for (var i = 0; i < characters.length; i++) {
         var scorecard = $("#scorecard-template").clone(false).appendTo("#scorecard-body").show();
         scorecard.attr("id", "scorecard-"+escapeName(characters[i]));
         scorecard.find(".character-portrait").attr("src", "images/profiles/"+characters[i].toLowerCase()+".png");
         setScore(scorecard, scoreData[characters[i]]);
       }
+      
+      //$("#scorecard-body").show();
     });
     
     //setScore($("#scorecard-"+"Waluigi"), {stars: 0, coins:10});
