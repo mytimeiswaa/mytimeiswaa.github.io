@@ -99,9 +99,12 @@
   
   getBros(function (fullNames, names, characters) {
     getScores(function (scoreData) {
-      /*scoreData.sort(function (a, b) {
-        return (b.stars == a.stars) ? (b.coins - a.coins) : (b.stars - a.stars);
-      });*/
+      characters.sort(function (a, b) {
+        a = scoreData[a];
+        b = scoreData[b];
+        return (b.stars != a.stars) ? (b.stars - a.stars) :
+          ( (b.coins != a.coins) ? (b.coins - a.coins) : (b.sort - a.sort));
+      });
       for (var i = 0; i < characters.length; i++) {
         var scorecard = $("#scorecard-template").clone(false).appendTo("#scorecard-body").show();
         scorecard.attr("id", "scorecard-"+escapeName(characters[i]));
