@@ -39,6 +39,14 @@ function getScores(callback) {
   });
 }
 
+function getScoreFor(character, callback) {
+  $(document).ready(function() {
+    getScores(function (data) {
+      callback(data[character]);
+    });
+  });
+}
+
 var numberClasses = "mp-number-empty mp-number-0 mp-number-1 mp-number-2 mp-number-3 mp-number-4 mp-number-5 mp-number-6 mp-number-7 mp-number-8 mp-number-9";
 
 function setScore(scorecard, score) {

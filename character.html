@@ -45,32 +45,35 @@
       <li><a href="index.html"><img src="images/starspace.png"/> Scores</a></li>
       <li><a href="minigames.html"><img src="images/minigame.png"/> Mini-games</a></li>
       <li class="active"><a href="#"><img src="images/toadicon.png"/> Character</a></li>
-      <li><a href="#"><img src="images/chanceTime.png"/> ???</a></li>
+      <li><a href="chancetime.html"><img src="images/chanceTime.png"/> ???</a></li>
     </ul>
   </div>
 </nav>
   
 <div class="container text-white">
   
-  <h2 id="characterName" class="text-white"><strong></strong></h2>
+  <h2 id="characterName" class="text-white"><strong>&nbsp</strong></h2>
   
   <div id="scorecard-body" class="row">
-  	<img class="img-responsive" src="images/profiles/wario.png"/>
+  	<img class="img-responsive center-block" src="images/profiles/waluigi.png" style="visibility:hidden;"/>
     <div class="col-sm-12" style="height:10px;"></div>
-    <div id="scorecard-template" class="col-sm-12">
-      <img src="images/starsprite.png" width="32" height="32" class="scale-2" style="position: absolute; top:5px; left: 36px;"/>
-      <img src="images/coin.png" width="32" height="32" class="scale-2" style="position: absolute; top:72px; left: 36px;"/>
-      <img src="images/transparent.png" class="mp-number mp-times scale-2" style="position:absolute; top:9px; left:103px;"/>
-      <img src="images/transparent.png" class="mp-number mp-times scale-2" style="position:absolute; top:73px; left:103px;"/>
-      
-      <img src="images/transparent.png" class="mp-number mp-number-1 star scale-2" style="position:absolute; top:9px; left:167px;"/>
-      <img src="images/transparent.png" class="mp-number mp-number-2 star scale-2"  style="position:absolute; top:9px; left:231px;"/>
-      <img src="images/transparent.png" class="mp-number mp-number-2 star scale-2"   style="position:absolute; top:9px; left:295px;"/>
-      
-      <img src="images/transparent.png" class="mp-number mp-number-6 coin scale-2" style="position:absolute; top:73px; left:167px;"/>
-      <img src="images/transparent.png" class="mp-number mp-number-8 coin scale-2" style="position:absolute; top:73px; left:231px;"/>
-      <img src="images/transparent.png" class="mp-number mp-number-empty coin scale-2" style="position:absolute; top:73px; left:295px;"/>
+    <div id="scorecard-template" class="col-sm-12" style="width:350px;margin:auto;">
+      <div>
+        <img src="images/starsprite.png" width="32" height="32" class="scale-2" style="position: absolute; top:5px; left: 36px;"/>
+        <img src="images/coin.png" width="32" height="32" class="scale-2" style="position: absolute; top:72px; left: 36px;"/>
+        <img src="images/transparent.png" class="mp-number mp-times scale-2" style="position:absolute; top:9px; left:103px;"/>
+        <img src="images/transparent.png" class="mp-number mp-times scale-2" style="position:absolute; top:73px; left:103px;"/>
+        
+        <img src="images/transparent.png" class="mp-number mp-number-empty star scale-2" style="position:absolute; top:9px; left:167px;"/>
+        <img src="images/transparent.png" class="mp-number mp-number-empty star scale-2"  style="position:absolute; top:9px; left:231px;"/>
+        <img src="images/transparent.png" class="mp-number mp-number-empty star scale-2"   style="position:absolute; top:9px; left:295px;"/>
+        
+        <img src="images/transparent.png" class="mp-number mp-number-empty coin scale-2" style="position:absolute; top:73px; left:167px;"/>
+        <img src="images/transparent.png" class="mp-number mp-number-empty coin scale-2" style="position:absolute; top:73px; left:231px;"/>
+        <img src="images/transparent.png" class="mp-number mp-number-empty coin scale-2" style="position:absolute; top:73px; left:295px;"/>
+      </div>
     </div>
+    <span style="height:130px;display:block;"></span>
   </div>
   
   
@@ -97,8 +100,13 @@
     
   
     var index = fullNames.findIndex(function(name){return name == broName});
-    $("#characterName > strong").html(characters[index]);
+    var characterName = characters[index];
+    $("#characterName > strong").html(characterName);
     $("#broDisplay").html("Welcome, "+names[index]+"!");
+    $("#scorecard-body .img-responsive").attr("src", "images/profiles/"+escapeName(characterName.toLowerCase())+".png").css("visibility", "visible");
+    getScoreFor(characterName, function (score) {
+      setScore($("#scorecard-template"), score);
+    });
   });
   
   

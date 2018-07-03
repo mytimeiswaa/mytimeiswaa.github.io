@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Mini-games</title>
+  <title>Welcome!</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -19,6 +19,9 @@
     body, html {
     	height: 100%;
     }
+    .jumbotron {
+    	background: none;
+    }
     
     .text-white {
     	color: rgb(200,200,200);
@@ -35,35 +38,21 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">Broball Summit</a>
+      <a class="navbar-brand" href="#">Broball Summit</a>
       <p id="broDisplay" class="navbar-brand pull-right"></p>
     </div>
     <ul class="nav navbar-nav">
       <li><a href="index.html"><img src="images/starspace.png"/> Scores</a></li>
-      <li class="active"><a href="#"><img src="images/minigame.png"/> Mini-games</a></li>
+      <li><a href="minigames.html"><img src="images/minigame.png"/> Mini-games</a></li>
       <li><a href="character.html"><img src="images/toadicon.png"/> Character</a></li>
-      <li><a href="chancetime.html"><img src="images/chanceTime.png"/> ???</a></li>
+      <li class="active"><a href="#"><img src="images/chanceTime.png"/> ???</a></li>
     </ul>
   </div>
 </nav>
   
 <div class="container text-white">
   
-  <h2 class="text-white">Mini-games (coming soon!)</h2>
-  
-  <div class="row">
-  	
-    <div class="col-sm-12 scorecard" style="background-color:red;border-radius:20px;">
-      <p>ASD</p>
-      <p>ASD</p>
-      <p>ASD</p>
-    </div>
-    <div class="col-sm-12 scorecard" style="background-color:blue;border-radius:20px;">
-      <p>ASD</p>
-      <p>ASD</p>
-      <p>ASD</p>
-    </div>
-  </div>
+  <h2 class="text-white">??? Chance Time ???</h2>
   
   
   
@@ -75,10 +64,19 @@
 	if (broName == "")
 		window.location.assign("welcome.html");
 		
-	getBros(function (fullNames, names, characters) {
+	
+  getBros(function (fullNames, names, characters) {
+    
+  
     var index = fullNames.findIndex(function(name){return name == broName});
+    var characterName = characters[index];
+    //$("#characterName > strong").html(characterName);
     $("#broDisplay").html("Welcome, "+names[index]+"!");
+    $("#scorecard-body .img-responsive").attr("src", "images/profiles/"+escapeName(characterName.toLowerCase())+".png").css("visibility", "visible");
+    
   });
+  
+  
 </script>
 
 </body>
