@@ -8,15 +8,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://mytimeiswaa.github.io/scripts/cookie.js"></script>
+  <script src="scripts/brodata.js"></script>
   <link rel="stylesheet" href="theme.css">
   
   <style>
   	body {
-    	/*background: url("https://i.giphy.com/media/peAFQfg7Ol6IE/giphy.webp"), rgb(0,0,0);*/
       background: rgb(0,0,0);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
     }
     
     body, html {
@@ -73,9 +70,7 @@
   <div class="form-group text-white">
     <label id="selectlabel" for="bro-select">Who are you?</label>
     <select class="form-control" id="bro-select">
-      <option>New Bro</option>
-      <option>Kartik</option>
-      <option>Haling</option>
+      
     </select>
 	</div>
   
@@ -103,6 +98,14 @@
       $("#selectlabel").addClass("text-danger").html("Please select a bro!");
     }
   });
+  
+  getBros(function(fullnames, names, characters) {
+    $.each(fullnames, function (index, value) {
+      $("#bro-select").append("<option>"+value+"</option>");
+    });
+    $("#bro-select").prepend("<option selected>New Bro</option>");
+  });
+  
 </script>
 
 </body>

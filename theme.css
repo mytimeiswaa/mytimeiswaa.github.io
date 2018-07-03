@@ -107,3 +107,7 @@ h2 {
 .mp-times {
   background-position: -160px -30px;
 }
+
+.scale-2 {
+  transform: scale(2,2);
+}

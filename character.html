@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome!</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="scripts/cookie.js"></script>
+  <script src="scripts/brodata.js"></script>
+  <link rel="stylesheet" href="theme.css">
+  
+  <style>
+  	body {
+      background: rgb(0,0,0);
+    }
+    
+    body, html {
+    	height: 100%;
+    }
+    .jumbotron {
+    	background: none;
+    }
+    
+    .text-white {
+    	color: rgb(200,200,200);
+    }
+    
+    .navbar-nav > li {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Broball Summit</a>
+      <p id="broDisplay" class="navbar-brand pull-right"></p>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.html"><img src="images/starspace.png"/> Scores</a></li>
+      <li><a href="minigames.html"><img src="images/minigame.png"/> Mini-games</a></li>
+      <li class="active"><a href="#"><img src="images/toadicon.png"/> Character</a></li>
+      <li><a href="#"><img src="images/chanceTime.png"/> ???</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container text-white">
+  
+  <h2 id="characterName" class="text-white"><strong></strong></h2>
+  
+  <div id="scorecard-body" class="row">
+  	<img class="img-responsive" src="images/profiles/wario.png"/>
+    <div id="scorecard-template" class="col-sm-12">
+      <img src="images/starsprite.png" width="32" height="32" class="scale-2" style="position: absolute; top:5px; left: 36px;"/>
+      <img src="images/coin.png" width="32" height="32" class="scale-2" style="position: absolute; top:72px; left: 36px;"/>
+      <img src="images/transparent.png" class="mp-number mp-times scale-2" style="position:absolute; top:9px; left:103px;"/>
+      <img src="images/transparent.png" class="mp-number mp-times scale-2" style="position:absolute; top:73px; left:103px;"/>
+      
+      <img src="images/transparent.png" class="mp-number mp-number-1 star scale-2" style="position:absolute; top:9px; left:167px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-2 star scale-2"  style="position:absolute; top:9px; left:231px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-2 star scale-2"   style="position:absolute; top:9px; left:295px;"/>
+      
+      <img src="images/transparent.png" class="mp-number mp-number-6 coin scale-2" style="position:absolute; top:73px; left:167px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-8 coin scale-2" style="position:absolute; top:73px; left:231px;"/>
+      <img src="images/transparent.png" class="mp-number mp-number-empty coin scale-2" style="position:absolute; top:73px; left:295px;"/>
+    </div>
+  </div>
+  
+  
+  
+</div>
+                             
+<script>
+	var broName = getCookie("broName");
+  
+	if (broName == "")
+		window.location.assign("welcome.html");
+		
+	$("#broDisplay").html("Welcome, "+broName+"!");
+  
+  //var template = $("#scorecard-template").clone(false);
+  //for (var i=0; i < 11; i++)
+  //{
+  //  $("#scorecard-template").clone(false).appendTo("#scorecard-body").show();
+  //}
+  
+  //$("#scorecard-body").hide();
+  
+  getBros(function (fullNames, names, characters) {
+    var index = names.findIndex(function(name){return name == broName});
+    $("#characterName > strong").html(characters[index]);
+  });
+  
+  
+</script>
+
+</body>
+</html>
