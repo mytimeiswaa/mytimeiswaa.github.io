@@ -104,7 +104,7 @@
     var characterName = characters[index];
     $("#characterName > strong").html(characterName);
     $("#broDisplay").html("Welcome, "+names[index]+"!");
-    $("#scorecard-body .img-responsive").attr("src", "images/profiles/"+escapeName(characterName.toLowerCase())+".png").css("visibility", "visible");
+    $("#scorecard-body .img-responsive").attr("src", "images/profiles/"+characterName.toLowerCase()+".png").css("visibility", "visible");
     getScoreFor(characterName, function (score) {
       setScore($("#scorecard-template"), score);
     });
