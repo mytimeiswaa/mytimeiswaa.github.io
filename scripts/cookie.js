@@ -24,7 +24,7 @@ testCookies["broName"] = "Kartik";
 
 function getCookie(cname) {
   
-  if (window.location.href.startsWith("file:///") && cname == "broName") return "Kartik";
+  if (window.location.href.startsWith("file:///") && cname == "broName") return "Kartik B";
   
   var name = cname + "=";
   var ca = document.cookie.split(';');

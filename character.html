@@ -56,6 +56,7 @@
   
   <div id="scorecard-body" class="row">
   	<img class="img-responsive" src="images/profiles/wario.png"/>
+    <div class="col-sm-12" style="height:10px;"></div>
     <div id="scorecard-template" class="col-sm-12">
       <img src="images/starsprite.png" width="32" height="32" class="scale-2" style="position: absolute; top:5px; left: 36px;"/>
       <img src="images/coin.png" width="32" height="32" class="scale-2" style="position: absolute; top:72px; left: 36px;"/>
@@ -82,7 +83,7 @@
 	if (broName == "")
 		window.location.assign("welcome.html");
 		
-	$("#broDisplay").html("Welcome, "+broName+"!");
+	
   
   //var template = $("#scorecard-template").clone(false);
   //for (var i=0; i < 11; i++)
@@ -93,8 +94,11 @@
   //$("#scorecard-body").hide();
   
   getBros(function (fullNames, names, characters) {
-    var index = names.findIndex(function(name){return name == broName});
+    
+  
+    var index = fullNames.findIndex(function(name){return name == broName});
     $("#characterName > strong").html(characters[index]);
+    $("#broDisplay").html("Welcome, "+names[index]+"!");
   });
   
   

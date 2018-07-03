@@ -89,8 +89,7 @@
 	if (broName == "")
 		window.location.assign("welcome.html");
 		
-	$("#broDisplay").html("Welcome, "+broName+"!");
-  
+	
   //var template = $("#scorecard-template").clone(false);
   //for (var i=0; i < 11; i++)
   //{
@@ -100,6 +99,12 @@
   //$("#scorecard-body").hide();
   
   getBros(function (fullNames, names, characters) {
+  
+    var broIndex = fullNames.findIndex(function (bruh) {
+      return bruh == broName;
+    });
+    $("#broDisplay").html("Welcome, "+names[broIndex]+"!");
+    
     getScores(function (scoreData) {
       characters.sort(function (a, b) {
         a = scoreData[a];

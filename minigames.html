@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="scripts/cookie.js"></script>
+  <script src="scripts/brodata.js"></script>
   <link rel="stylesheet" href="theme.css">
   
   <style>
@@ -74,7 +75,10 @@
 	if (broName == "")
 		window.location.assign("welcome.html");
 		
-	$("#broDisplay").html("Welcome, "+broName+"!");
+	getBros(function (fullNames, names, characters) {
+    var index = fullNames.findIndex(function(name){return name == broName});
+    $("#broDisplay").html("Welcome, "+names[index]+"!");
+  });
 </script>
 
 </body>
