@@ -63,6 +63,51 @@
       left:45%;
       top:51%;
     }
+    
+    @keyframes hand1 {
+      0% {left: 23.5%;top:25%;}
+      90% {left: 18.5%;top:25%;}
+      100% {left: 23.5%;top:25%;}
+    }
+    
+    @keyframes hand2 {
+      0% {left: 46.5%;top:25%;}
+      90% {left: 41.5%;top:25%;}
+      100% {left: 46.5%;top:25%;}
+    }
+    
+    @keyframes hand3 {
+      0% {left: 35%;top:54%;}
+      90% {left: 30%;top:54%;}
+      100% {left: 35%;top:54%;}
+    }
+    
+    .hand {
+      position: absolute;
+      width: 10%;
+      height: 10%;
+      visibility: hidden;
+      z-index:1;
+    }
+    
+    .hand-1 {
+      animation: hand1 .65s infinite;
+      visibility: visible;
+    }
+    
+    .hand-2 {
+      animation: hand2 .65s infinite;
+      visibility: visible;
+    }
+    
+    .hand-3 {
+      animation: hand3 .65s infinite;
+      visibility: visible;
+    }
+    
+    
+    
+    
   </style>
 </head>
 <body>
@@ -88,7 +133,7 @@
 <div class="container text-white" style="position:relative;">
   
   <audio loop>
-    <source src="sounds/bowser.mp3">
+    <source src="sounds/chancetime.ogg">
   </audio>
   <h2 class="text-white">??? Chance Time ???</h2>
   <div class="row" style="text-align:center;">
@@ -98,10 +143,11 @@
   </div>
   <div style="position:relative;">
     <video autoplay muted id="myVideo" onPause="videoPaused();">
-      <source src="video/chancetime2.mp4#t=0,6" type="video/mp4">
       <source src="video/chancetime.mp4#t=0,6.2" type="video/mp4">
     </video>
+    <img id="stage-pic" src="images/chancetimestage.png" style="position:absolute;left:0px;top:0px;width:100%;height:100%;display:none;">
     <div style="position:absolute;left:0px;top:0px;width:100%;height:100%;">
+      <img class="hand" src="images/hand.png">
       <div class="spinner spinner-1">
         <img class="top-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:-100%;">
         <img class="bot-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:0%;">
@@ -136,7 +182,9 @@
   var currentSpinner = $(".spinner-2");
   var spindex = 0;
   var spinning = false;
-  var spinSpeed = 125;
+  //var spinSpeed = 400;
+  var spinSpeed = 250;
+  //var spinSpeed = 125;
   
 	if (broName == "")
 		window.location.assign("welcome.html");
@@ -169,6 +217,7 @@
     if (!spinning && $(this).is(currentSpinner)) {
       spinning = true;
       spin();
+      $(".hand").removeClass("hand-1 hand-2 hand-3");
     } else if ($(this).is(currentSpinner)) {
       spinning = false;
     }
@@ -179,12 +228,13 @@
   });
   
   function spin() {
-    currentSpinner.find("img.bot-pic").animate({top: "100%"}, 125, 'linear');
-    currentSpinner.find("img.top-pic").animate({top: "0%"}, 125, 'linear', function() {
+    currentSpinner.find("img.bot-pic").attr("src", currentSpinner.find("img.top-pic").attr("src")).css("top", "0%");
+    spindex = (spindex + 1) % currentSpinner.find("option").length;
+    currentSpinner.find("img.top-pic").attr("src", "images/profiles/"+currentSpinner.find("option")[spindex].innerHTML.toLowerCase()+".png").css("top", "-100%");
+        
+    currentSpinner.find("img.bot-pic").animate({top: "100%"}, spinSpeed, 'linear');
+    currentSpinner.find("img.top-pic").animate({top: "0%"}, spinSpeed, 'linear', function() {
       if (spinning) {
-        currentSpinner.find("img.bot-pic").attr("src", currentSpinner.find("img.top-pic").attr("src")).css("top", "0%");
-        spindex = (spindex + 1) % currentSpinner.find("option").length;
-        currentSpinner.find("img.top-pic").attr("src", "images/profiles/"+currentSpinner.find("option")[spindex].innerHTML.toLowerCase()+".png").css("top", "-100%");
         spin();
       }// else alert("You picked "+currentSpinner.find("option")[spindex].innerHTML+"!");
     });
@@ -192,6 +242,14 @@
   
   function videoPaused() {
     $(".spinner").fadeIn();
+    $("#stage-pic").fadeIn();
+    initChanceTime();
+  }
+  
+  function initChanceTime() {
+    var firstOne = (Math.floor(Math.random()*3)+1);
+    $(".hand").addClass("hand-"+firstOne);
+    currentSpinner = $(".spinner-"+firstOne);
   }
   
 </script>
