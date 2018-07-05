@@ -13,8 +13,12 @@
   <link rel="icon" href="images/favicon.png">
   
   <style>
-  	body {
-      background: rgb(0,0,0);
+  	.book-background {
+      background: url("images/book.png") black;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: contain;
+      background-position: 50% 280px;
     }
     
     body, html {
@@ -27,6 +31,18 @@
     
     .navbar-nav > li {
       font-weight: bold;
+    }
+    
+    .panel {
+      background: none;
+    }
+    
+    .minigame {
+      background: #01C701;
+    }
+    
+    .collapsed {
+      background: none;
     }
   </style>
 </head>
@@ -48,21 +64,23 @@
   </div>
 </nav>
   
-<div class="container text-white">
+<div class="container text-white book-background">
   
-  <h2 class="text-white">Mini-games (coming soon!)</h2>
+  <h2 class="text-white">Mini-games</h2>
   
-  <div class="row">
-  	
-    <div class="col-sm-12 scorecard" style="background-color:red;border-radius:20px;">
-      <p>ASD</p>
-      <p>ASD</p>
-      <p>ASD</p>
-    </div>
-    <div class="col-sm-12 scorecard" style="background-color:blue;border-radius:20px;">
-      <p>ASD</p>
-      <p>ASD</p>
-      <p>ASD</p>
+  <div id="accordian">
+    <div class="panel">
+    
+      <div class="col-md-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse1">???</div>
+      <div id="collapse1" class="collapse text-center" data-parent="#accordian">TEST</div>
+      <div class="col-md-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse2">???</div>
+      <div id="collapse2" class="collapse text-center" data-parent="#accordian">TEST</div>
+      <div class="col-md-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse3">???</div>
+      <div id="collapse3" class="collapse text-center" data-parent="#accordian">TEST</div>
+      <div class="col-md-12 text-center minigame collapsed">???</div>
+      <div class="col-md-12 text-center minigame collapsed">???</div>
+      <div class="col-md-12 text-center minigame collapsed">???</div>
+    
     </div>
   </div>
   
@@ -80,6 +98,8 @@
     var index = fullNames.findIndex(function(name){return name == broName});
     $("#broDisplay").html("Welcome, "+names[index]+"!");
   });
+  
+  
 </script>
 
 </body>

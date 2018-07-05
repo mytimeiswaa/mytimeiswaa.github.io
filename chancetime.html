@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Welcome!</title>
+  <title>Special Event</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,6 +11,7 @@
   <script src="scripts/brodata.js"></script>
   <link rel="stylesheet" href="theme.css">
   <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   
   <style>
   	body {
@@ -31,6 +32,37 @@
     .navbar-nav > li {
       font-weight: bold;
     }
+    
+    #myVideo {
+      left: 0;
+      top: 0;
+      width: 100%;
+      height:100%;
+      object-fit:fill;
+    }
+    
+    .spinner {
+      position:absolute;
+      width:11%;
+      height:15%;
+      overflow:hidden;
+      display:none;
+    }
+    
+    .spinner-1 {
+      left:33.5%;
+      top:22%;
+    }
+    
+    .spinner-2 {
+      left:56.5%;
+      top:22%;
+    }
+    
+    .spinner-3 {
+      left:45%;
+      top:51%;
+    }
   </style>
 </head>
 <body>
@@ -50,17 +82,60 @@
     </ul>
   </div>
 </nav>
+
+
+
+<div class="container text-white" style="position:relative;">
   
-<div class="container text-white">
-  
+  <audio loop>
+    <source src="sounds/bowser.mp3">
+  </audio>
   <h2 class="text-white">??? Chance Time ???</h2>
-  
-  
+  <div class="row" style="text-align:center;">
+    <i class="fas fa-microphone-slash" style="font-size:36px;"></i>
+  </div>
+  <div style="height:10px;">
+  </div>
+  <div style="position:relative;">
+    <video autoplay muted id="myVideo" onPause="videoPaused();">
+      <source src="video/chancetime.mp4#t=0,6.2" type="video/mp4">
+    </video>
+    <div style="position:absolute;left:0px;top:0px;width:100%;height:100%;">
+      <div class="spinner spinner-1">
+        <img class="top-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:-100%;">
+        <img class="bot-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:0%;">
+        <option style="display:none;">Waluigi</option>
+        <option style="display:none;">Koopa Kid</option>
+        <option style="display:none;">Luigi</option>
+        <option style="display:none;">Donkey Kong</option>
+      </div>
+      <div class="spinner spinner-2">
+        <img class="top-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:-100%;">
+        <img class="bot-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:0%;">
+        <option style="display:none;">Waluigi</option>
+        <option style="display:none;">Koopa Kid</option>
+        <option style="display:none;">Luigi</option>
+        <option style="display:none;">Donkey Kong</option>
+      </div>
+      <div class="spinner spinner-3">
+        <img class="top-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:-100%;">
+        <img class="bot-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:0%;">
+        <option style="display:none;">Waluigi</option>
+        <option style="display:none;">Koopa Kid</option>
+        <option style="display:none;">Luigi</option>
+        <option style="display:none;">Donkey Kong</option>
+      </div>
+    </div>
+  </div>
   
 </div>
                              
 <script>
 	var broName = getCookie("broName");
+  var currentSpinner = $(".spinner-2");
+  var spindex = 0;
+  var spinning = false;
+  var spinSpeed = 125;
   
 	if (broName == "")
 		window.location.assign("welcome.html");
@@ -77,6 +152,46 @@
     
   });
   
+  $(".fa-microphone-slash").click(function () {
+    //$(this).removeClass("fa-microphone-slash").addClass("fa-microphone");
+    $(this).toggleClass("fa-microphone-slash fa-microphone");
+    var audio = $("audio")[0];
+    audio.volume = .3;
+    if (audio.paused == true) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  });
+  
+  $(".spinner").click(function() {
+    if (!spinning && $(this).is(currentSpinner)) {
+      spinning = true;
+      spin();
+    } else if ($(this).is(currentSpinner)) {
+      spinning = false;
+    }
+  });
+  
+  getBros(function (fullnames, names, characters) {
+    
+  });
+  
+  function spin() {
+    currentSpinner.find("img.bot-pic").animate({top: "100%"}, 125, 'linear');
+    currentSpinner.find("img.top-pic").animate({top: "0%"}, 125, 'linear', function() {
+      if (spinning) {
+        currentSpinner.find("img.bot-pic").attr("src", currentSpinner.find("img.top-pic").attr("src")).css("top", "0%");
+        spindex = (spindex + 1) % currentSpinner.find("option").length;
+        currentSpinner.find("img.top-pic").attr("src", "images/profiles/"+currentSpinner.find("option")[spindex].innerHTML.toLowerCase()+".png").css("top", "-100%");
+        spin();
+      }// else alert("You picked "+currentSpinner.find("option")[spindex].innerHTML+"!");
+    });
+  }
+  
+  function videoPaused() {
+    $(".spinner").fadeIn();
+  }
   
 </script>
 
