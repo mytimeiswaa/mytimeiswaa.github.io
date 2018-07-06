@@ -4,7 +4,7 @@ coin5;Worst Individual Score
 coin10;Team Victory
 coin3;Most Assasinations (Shots in the Back)
 coin3;Tag an Opposing Bro >5 Times in a Match
-#Resistance(Avalon);false
+#Resistance(Avalon);true
 coin5;Team Victory
 coin5;Successfully Assassinate Merlin
 coin-5;Multiple Fails on the 1st Mission
