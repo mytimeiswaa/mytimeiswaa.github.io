@@ -80,3 +80,20 @@ function setScore(scorecard, score) {
 function escapeName(characterName) {
   return characterName.replace(" ", "-");
 }
+
+function getMinigameData(callback) {
+  $(document).ready(function() {
+    $.ajax({
+      type: "GET",
+      url: "https://mytimeiswaa.github.io/data/minigames.txt",
+      dataType: "text",
+      success: function(data) {parseMinigameData(data);}
+    });
+  });
+  
+  function parseMinigameData(data)
+  {
+    var lines = data.split("\r\n");
+    callback(lines);
+  }
+}

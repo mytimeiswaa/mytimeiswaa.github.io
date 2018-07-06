@@ -34,6 +34,7 @@
     
     .panel {
       background: none;
+      box-shadow: none;
     }
     
     .minigame {
@@ -70,15 +71,15 @@
   <div id="accordian">
     <div class="panel">
     
-      <div class="col-md-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse1">???</div>
+      <div class="col-xl-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse1">???</div>
       <div id="collapse1" class="collapse text-center" data-parent="#accordian">TEST</div>
-      <div class="col-md-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse2">???</div>
+      <div class="col-xl-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse2">???</div>
       <div id="collapse2" class="collapse text-center" data-parent="#accordian">TEST</div>
-      <div class="col-md-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse3">???</div>
+      <div class="col-xl-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse3">???</div>
       <div id="collapse3" class="collapse text-center" data-parent="#accordian">TEST</div>
-      <div class="col-md-12 text-center minigame collapsed">???</div>
-      <div class="col-md-12 text-center minigame collapsed">???</div>
-      <div class="col-md-12 text-center minigame collapsed">???</div>
+      <div class="col-xl-12 text-center minigame collapsed">???</div>
+      <div class="col-xl-12 text-center minigame collapsed">???</div>
+      <div class="col-xl-12 text-center minigame collapsed">???</div>
     
     </div>
   </div>
@@ -96,6 +97,11 @@
 	getBros(function (fullNames, names, characters) {
     var index = fullNames.findIndex(function(name){return name == broName});
     $("#broDisplay").html("Welcome, "+names[index]+"!");
+  });
+  
+  getMinigameData(function (lines) {
+    var accordian = $("#accordian .panel");
+    alert(lines);
   });
   
   
