@@ -4,7 +4,7 @@ coin5;Worst Individual Score
 coin10;Team Victory
 coin3;Most Assasinations (Shots in the Back)
 coin3;Tag an Opposing Bro >5 Times in a Match
-#Resistance(Avalon);true
+#Resistance(Avalon);false
 coin5;Team Victory
 coin5;Successfully Assassinate Merlin
 coin-5;Multiple Fails on the 1st Mission
@@ -19,12 +19,12 @@ coin3;6 Degrees of Dong (Turning something non sexual into a penis)
 coin5;Write Down the Correct Answer After Someone Guessed Incorrectly Earlier in the Cycle
 coin3;Correctly Identifying a Matt Drawing (once per play session)
 coin10;Choosing the Same Secret Phrase as Someone Else (once per play session)
-#Monikers;true
+#Monikers;false
 coin5;Team Victory
 coin10;Get >10 in a Round
 coin-3;Get <3 in a Round 
 coin10;Sweep All 3 Rounds
-#Halo;true
+#Halo;false
 coin5;Team Victory
 coin5;Weapon or Vehicle-Specific Spree (once per play session)
 coin3;Stop an Ives Spree
