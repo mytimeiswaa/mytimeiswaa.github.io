@@ -148,29 +148,49 @@
     <img id="stage-pic" src="images/chancetimestage.png" style="position:absolute;left:0px;top:0px;width:100%;height:100%;display:none;">
     <div style="position:absolute;left:0px;top:0px;width:100%;height:100%;">
       <img class="hand" src="images/hand.png">
-      <div class="spinner spinner-1">
+      <div class="spinner spinner-1 spinner-unused" spinner-number="1">
         <img class="top-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:-100%;">
         <img class="bot-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:0%;">
         <option style="display:none;">Waluigi</option>
-        <option style="display:none;">Koopa Kid</option>
         <option style="display:none;">Luigi</option>
+        <option style="display:none;">Boo</option>
+        <option style="display:none;">Koopa Kid</option>
+        <option style="display:none;">Toadette</option>
+        <option style="display:none;">Wario</option>
         <option style="display:none;">Donkey Kong</option>
+        <option style="display:none;">Shy Guy</option>
+        <option style="display:none;">Peach</option>
+        <option style="display:none;">Blooper</option>
+        <option style="display:none;">Dry Bones</option>
       </div>
-      <div class="spinner spinner-2">
+      <div class="spinner spinner-2 spinner-unused" spinner-number="2">
         <img class="top-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:-100%;">
         <img class="bot-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:0%;">
         <option style="display:none;">Waluigi</option>
-        <option style="display:none;">Koopa Kid</option>
         <option style="display:none;">Luigi</option>
+        <option style="display:none;">Boo</option>
+        <option style="display:none;">Koopa Kid</option>
+        <option style="display:none;">Toadette</option>
+        <option style="display:none;">Wario</option>
         <option style="display:none;">Donkey Kong</option>
+        <option style="display:none;">Shy Guy</option>
+        <option style="display:none;">Peach</option>
+        <option style="display:none;">Blooper</option>
+        <option style="display:none;">Dry Bones</option>
       </div>
-      <div class="spinner spinner-3">
+      <div class="spinner spinner-3 spinner-unused" spinner-number="3">
         <img class="top-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:-100%;">
         <img class="bot-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:0%;">
-        <option style="display:none;">Waluigi</option>
-        <option style="display:none;">Koopa Kid</option>
-        <option style="display:none;">Luigi</option>
-        <option style="display:none;">Donkey Kong</option>
+        <option style="display:none;">star1</option>
+        <option style="display:none;">coin10</option>
+        <option style="display:none;">coin30</option>
+        <option style="display:none;">coin40</option>
+        <option style="display:none;">coin20</option>
+        <option style="display:none;">star1</option>
+        <option style="display:none;">coin50</option>
+        <option style="display:none;">star1</option>
+        <option style="display:none;">star3</option>
+        <option style="display:none;">coinall</option>
       </div>
     </div>
   </div>
@@ -185,6 +205,7 @@
   //var spinSpeed = 400;
   var spinSpeed = 250;
   //var spinSpeed = 125;
+  spinSpeeds = [125, 250, 400];
   
 	if (broName == "")
 		window.location.assign("welcome.html");
@@ -220,6 +241,14 @@
       $(".hand").removeClass("hand-1 hand-2 hand-3");
     } else if ($(this).is(currentSpinner)) {
       spinning = false;
+      currentSpinner.removeClass("spinner-unused");
+      
+      spinnerDone(currentSpinner);
+      currentSpinner = $();
+      
+      setTimeout(function () {
+        initChanceTime();
+      }, 1000);
     }
   });
   
@@ -247,9 +276,24 @@
   }
   
   function initChanceTime() {
-    var firstOne = (Math.floor(Math.random()*3)+1);
-    $(".hand").addClass("hand-"+firstOne);
-    currentSpinner = $(".spinner-"+firstOne);
+  spindex = 0;
+    var spinners = $(".spinner-unused");
+    if (spinners.length > 0) {
+      var firstOne = (Math.floor(Math.random()*spinners.length)+1);
+      currentSpinner = $(spinners[firstOne-1]);
+      spinSpeed = spinSpeeds[spinners.length - 1];
+      //$(".hand").addClass("hand-"+currentSpinner.attr("spinner-number"));
+      currentSpinner.click();
+    } else {
+      currentSpinner = $();
+      alert("chance time over");
+    }
+  }
+  
+  function spinnerDone(spinner) {
+    var spinnerNumber = spinner.attr("spinner-number");
+    var picked = spinner.find("option")[spindex].innerHTML;
+    $(".spinner option:contains("+picked+")").remove();
   }
   
 </script>
