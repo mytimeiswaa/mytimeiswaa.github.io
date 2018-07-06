@@ -61,3 +61,41 @@ coin5;Best Score
 coin5;Most Popular Answers
 coin3;Get All Votes (Quiplash/TKO) (once per play session)
 coin3;Win as the Faker
+#7 Wonders;true
+coin5;Winning
+coin-5;Under 40 points
+coin10;Over 100 points
+coin3;Full 18 Points for Military
+coin3;Trade with Both Neighbors in One Turn (Can only get credit once per game)
+#Dominion;true
+coin5;Winning
+coin3;Play a Sequence of >4 Action Cards (can only get credit once per game)
+coin3;>4 Curse Cards at the End of the Game
+coin-5;Finishing with a score <0
+coin3;No Coppers In Your Hand at End of Game
+#Wizard;true
+coin10;Winning 
+coin5;Only person not to bust in a round
+coin10;Make a bet of 5 or more
+coin1;Miss Your Bet by >1
+coin5;Make Your Bet as the Dealer in the First Round
+#Mario Party 3;true
+star;Winning
+coin20;Winning if you are not Ives or Haling
+star;Winning if you are not Ives or Haling
+coin10;Successfully landing on a bowser space with 0 coins
+coin5;Landing on Chance Time
+coin3;Land on a star space with <20 Coins
+coin30;Win the Biggest Game Guy Prize
+coin10;Steal a Star
+#Spelunky;true
+star;Successfull Hell Run
+coin5;Beat Olmec
+coin-3;Murder a Fellow Spelunker
+coin3;Win Deathmatch
+#Melee;true
+coin5;Kamikaze an Opponent by Diving off the Stage with Them
+coin5;Crowd Chants Your Name (once per play session)
+coin5;Successful Falcon Knee Spike (once per play session)
+coin5;KO with Warp Star
+coin3;Win a Match

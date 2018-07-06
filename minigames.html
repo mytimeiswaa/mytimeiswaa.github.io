@@ -39,6 +39,7 @@
     
     .minigame {
       background: #01C701;
+      user-select:none;
     }
     
     .collapsed {
@@ -113,6 +114,10 @@
         addRule(currentRules, line);
       }
     }
+    
+    var unknowns = accordian.find(".minigame:contains('???')");
+    unknowns.remove();
+    unknowns.appendTo(accordian);
   });
   
   
