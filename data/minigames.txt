@@ -13,59 +13,51 @@ coin3;Propose a Unanimously Disapproved Team
 coin3;Successfully Get Assassinated as the Bodyguard 
 coin-5;Accidentally Reveal Your Card
 #Telestrations;true
-coin3;Correctly Getting Around the Group (Everyone gets coins)
+coin5;Correctly Getting Around the Group (Everyone gets coins)
 coin3;Funniest Drawing
 coin3;6 Degrees of Dong (Turning something non sexual into a penis)
-coin3;Write Down the Correct Answer After Someone Guessed Incorrectly Earlier in the Cycle
+coin5;Write Down the Correct Answer After Someone Guessed Incorrectly Earlier in the Cycle
 coin3;Correctly Identifying a Matt Drawing (once per play session)
-coin3;Choosing the Same Secret Phrase as Someone Else (once per play session)
+coin10;Choosing the Same Secret Phrase as Someone Else (once per play session)
 #Monikers;true
-coin3;Team Victory
-coin3;Get >10 in a Round
-coin3;Get <3 in a Round 
-coin3;Sweep All 3 Rounds
-coin3;Get 0 in a Round
+coin5;Team Victory
+coin10;Get >10 in a Round
+coin-3;Get <3 in a Round 
+coin10;Sweep All 3 Rounds
 #Halo;true
-coin3;Team Victory
-coin3;Weapon or Vehicle-Specific Spree (once per play session)
+coin5;Team Victory
+coin5;Weapon or Vehicle-Specific Spree (once per play session)
 coin3;Stop an Ives Spree
 coin3;K/D of +10 or higher 
 coin3;K/D of -10 or lower
-coin3;>5 Vehicle Assists as the Elephant Driver
 coin3;Melee as Most-Used Weapon
-coin3;Melee Kill with Flag/Bomb
-coin3;Triple Kill 
-coin3;>1 Flag Return in a Match
-coin3;Drive the Elephant Into the Wreckage on Sandtrap 
+coin5;Triple Kill
+coin5;>1 Flag Return in a Match
+ztar;Drive the Elephant Into the Wreckage on Sandtrap 
 coin3;Warthog Splatter
 coin3;Bulltrue!
 coin3;Kill From the Grave
 #Kings;true
 coin3;Trick >2 People as Question Master
-coin3;Be mated to 3 or more people
-coin3;Puking
-coin3;Immediately Failing at Categories
+ztar;Puking
+coin-3;Immediately Failing at Categories
 #Beer Pong;true
-coin3;Team Victory
-coin3;Every Member of the Team Makes it on the Same Turn
-coin3;Puking
-coin3;Hitting a Trick Shot
-coin3;Hit a Shot on Consecutive Turns
+coin5;Team Victory
+coin10;Every Member of the Team Makes it on the Same Turn
+ztar;Puking
+star;Hitting a Trick Shot
 #Flip Cup;true
 coin3;Team Victory
-coin3;Losing Before Your Team Finishes a Cup
-coin3;Getting the Cup on the First Try (once per play session)
-coin3;Puking
-coin3;More Than Ten Failed Flips in a Row
+coin-5;Losing Before Your Team Finishes a Cup
+coin5;Getting the Cup on the First Try (once per play session)
+ztar;Puking
 #True American;true
-coin3;Winner
-coin3;Puking
-coin3;Each Beer Finished
-coin3;Being the 4th Person on a space
+coin20;Winner
+ztar;Puking
+coin5;Each Beer Finished
 coin3;Complete a Lap Around the Course
 #Jackbox;true
-coin3;Best Score
-coin3;Most Popular Answers
+coin5;Best Score
+coin5;Most Popular Answers
 coin3;Get All Votes (Quiplash/TKO) (once per play session)
 coin3;Win as the Faker
-coin3;Match >2 Times on Monster Seeking Monster
