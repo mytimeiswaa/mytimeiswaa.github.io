@@ -93,7 +93,7 @@ function getMinigameData(callback) {
   
   function parseMinigameData(data)
   {
-    var lines = data.split("\r\n");
+    var lines = data.split(/\r\n|\n/);
     callback(lines);
   }
 }

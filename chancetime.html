@@ -132,6 +132,19 @@
 
 <div class="container text-white" style="position:relative;">
   
+  <div id="preload" style="display:none">
+    <img src="images/profiles/waluigi.png">
+    <img src="images/profiles/luigi.png">
+    <img src="images/profiles/boo.png">
+    <img src="images/profiles/koopa kid.png">
+    <img src="images/profiles/toadette.png">
+    <img src="images/profiles/wario.png">
+    <img src="images/profiles/donkey kong.png">
+    <img src="images/profiles/shy guy.png">
+    <img src="images/profiles/peach.png">
+    <img src="images/profiles/blooper.png">
+    <img src="images/profiles/dry bones.png">
+  </div>
   <audio loop>
     <source src="sounds/chancetime.ogg">
   </audio>
@@ -151,46 +164,46 @@
       <div class="spinner spinner-1 spinner-unused" spinner-number="1">
         <img class="top-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:-100%;">
         <img class="bot-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:0%;">
-        <option style="display:none;">Waluigi</option>
-        <option style="display:none;">Luigi</option>
-        <option style="display:none;">Boo</option>
-        <option style="display:none;">Koopa Kid</option>
-        <option style="display:none;">Toadette</option>
-        <option style="display:none;">Wario</option>
-        <option style="display:none;">Donkey Kong</option>
-        <option style="display:none;">Shy Guy</option>
-        <option style="display:none;">Peach</option>
-        <option style="display:none;">Blooper</option>
-        <option style="display:none;">Dry Bones</option>
+        <option style="display:none;">profiles/Waluigi</option>
+        <option style="display:none;">profiles/Luigi</option>
+        <option style="display:none;">profiles/Boo</option>
+        <option style="display:none;">profiles/Koopa Kid</option>
+        <option style="display:none;">profiles/Toadette</option>
+        <option style="display:none;">profiles/Wario</option>
+        <option style="display:none;">profiles/Donkey Kong</option>
+        <option style="display:none;">profiles/Shy Guy</option>
+        <option style="display:none;">profiles/Peach</option>
+        <option style="display:none;">profiles/Blooper</option>
+        <option style="display:none;">profiles/Dry Bones</option>
       </div>
       <div class="spinner spinner-2 spinner-unused" spinner-number="2">
         <img class="top-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:-100%;">
         <img class="bot-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:0%;">
-        <option style="display:none;">Waluigi</option>
-        <option style="display:none;">Luigi</option>
-        <option style="display:none;">Boo</option>
-        <option style="display:none;">Koopa Kid</option>
-        <option style="display:none;">Toadette</option>
-        <option style="display:none;">Wario</option>
-        <option style="display:none;">Donkey Kong</option>
-        <option style="display:none;">Shy Guy</option>
-        <option style="display:none;">Peach</option>
-        <option style="display:none;">Blooper</option>
-        <option style="display:none;">Dry Bones</option>
+        <option style="display:none;">profiles/Waluigi</option>
+        <option style="display:none;">profiles/Luigi</option>
+        <option style="display:none;">profiles/Boo</option>
+        <option style="display:none;">profiles/Koopa Kid</option>
+        <option style="display:none;">profiles/Toadette</option>
+        <option style="display:none;">profiles/Wario</option>
+        <option style="display:none;">profiles/Donkey Kong</option>
+        <option style="display:none;">profiles/Shy Guy</option>
+        <option style="display:none;">profiles/Peach</option>
+        <option style="display:none;">profiles/Blooper</option>
+        <option style="display:none;">profiles/Dry Bones</option>
       </div>
       <div class="spinner spinner-3 spinner-unused" spinner-number="3">
         <img class="top-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:-100%;">
         <img class="bot-pic" src="images/question.png" style="width:100%;height:100%;position:absolute;top:0%;">
-        <option style="display:none;">star1</option>
-        <option style="display:none;">coin10</option>
-        <option style="display:none;">coin30</option>
-        <option style="display:none;">coin40</option>
-        <option style="display:none;">coin20</option>
-        <option style="display:none;">star1</option>
-        <option style="display:none;">coin50</option>
-        <option style="display:none;">star1</option>
-        <option style="display:none;">star3</option>
-        <option style="display:none;">coinall</option>
+        <option style="display:none;">values/star1</option>
+        <option style="display:none;">values/coin10</option>
+        <option style="display:none;">values/coin30</option>
+        <option style="display:none;">values/coin40</option>
+        <option style="display:none;">values/coin20</option>
+        <option style="display:none;">values/star1</option>
+        <option style="display:none;">values/coin50</option>
+        <option style="display:none;">values/star1</option>
+        <option style="display:none;">values/star3</option>
+        <option style="display:none;">values/coinall</option>
       </div>
     </div>
   </div>
@@ -259,7 +272,7 @@
   function spin() {
     currentSpinner.find("img.bot-pic").attr("src", currentSpinner.find("img.top-pic").attr("src")).css("top", "0%");
     spindex = (spindex + 1) % currentSpinner.find("option").length;
-    currentSpinner.find("img.top-pic").attr("src", "images/profiles/"+currentSpinner.find("option")[spindex].innerHTML.toLowerCase()+".png").css("top", "-100%");
+    currentSpinner.find("img.top-pic").attr("src", "images/"+currentSpinner.find("option")[spindex].innerHTML.toLowerCase()+".png").css("top", "-100%");
         
     currentSpinner.find("img.bot-pic").animate({top: "100%"}, spinSpeed, 'linear');
     currentSpinner.find("img.top-pic").animate({top: "0%"}, spinSpeed, 'linear', function() {

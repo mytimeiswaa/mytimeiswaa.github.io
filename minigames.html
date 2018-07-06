@@ -44,6 +44,14 @@
     .collapsed {
       background: none;
     }
+    
+    ul {
+      text-align:left;
+    }
+    
+    #accordian li {
+      padding: 2px;
+    }
   </style>
 </head>
 <body>
@@ -71,15 +79,7 @@
   <div id="accordian">
     <div class="panel">
     
-      <div class="col-xl-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse1">???</div>
-      <div id="collapse1" class="collapse text-center" data-parent="#accordian">TEST</div>
-      <div class="col-xl-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse2">???</div>
-      <div id="collapse2" class="collapse text-center" data-parent="#accordian">TEST</div>
-      <div class="col-xl-12 text-center minigame collapsed" data-toggle="collapse" data-target="#collapse3">???</div>
-      <div id="collapse3" class="collapse text-center" data-parent="#accordian">TEST</div>
-      <div class="col-xl-12 text-center minigame collapsed">???</div>
-      <div class="col-xl-12 text-center minigame collapsed">???</div>
-      <div class="col-xl-12 text-center minigame collapsed">???</div>
+      
     
     </div>
   </div>
@@ -99,11 +99,48 @@
     $("#broDisplay").html("Welcome, "+names[index]+"!");
   });
   
+  var index = 0;
+  var currentRules = $();
+  
   getMinigameData(function (lines) {
     var accordian = $("#accordian .panel");
-    alert(lines);
+    
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      if (line.startsWith('#')) //is minigame entry
+        currentRules = addMinigame(accordian, line);
+      else { //Is rule entry
+        addRule(currentRules, line);
+      }
+    }
   });
   
+  
+  function addMinigame(accordian, line) {
+    index++;
+    line = line.substring(1, line.length);
+    var collapse = '>???';
+    if (line.split(';')[1] == "true") {
+       collapse = ' data-toggle="collapse" data-target="#collapse'+index+'">'+ line.split(";")[0];
+       
+    }
+    var game = $('<div class="col-xl-12 text-center minigame collapsed"'+collapse+'</div>');
+    accordian.append(game);
+    var rules = $('<div id="collapse'+index+'" class="collapse text-center" data-parent="#accordian">');
+    rules.append('<ul style="list-style:none;"></ul>');
+    accordian.append(rules);
+    return rules;
+  }
+  
+  function addRule(ruleSet, line) {
+    var img = line.split(";")[0];
+    var text = line.split(";")[1];
+    
+    var li = $("<li></li>");
+    ruleSet.find("ul").append(li);
+    
+    li.append('<img width="16px" height="16px" src="images/values/'+img+'.png"> '+text);
+  }
   
 </script>
 
