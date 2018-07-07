@@ -97,3 +97,16 @@ function getMinigameData(callback) {
     callback(lines);
   }
 }
+
+function getEventData(callback) {
+  $(document).ready(function() {
+    $.ajax({
+      cache: false,
+      dataType: "json",
+      url: "https://mytimeiswaa.github.io/data/events.json",
+      success: function(data) {
+        callback(data);
+      }
+    });
+  });
+}

@@ -88,7 +88,7 @@
   <div class="aspect-box" style="height:100%;width:100%;overflow:hidden;">
     <img id="bowserimg" src="images/bowserbackground.png" style="position:absolute;object-fit:fill;left:0px;top:0px;width:100%;height:100%;">
     <img id="bowsercover" src="images/bowserbackground2.png" style="position:absolute;object-fit:fill;left:0px;top:0px;width:100%;height:100%;">
-    <div class="container" id="bowserwheel" style="position:absolute;left:20%;width:60%;top:-100%;height:50%;background:url('images/bowserwheel.png');background-size:100% 100%;">
+    <div class="container" id="bowserwheel" style="font-weight:bold;position:absolute;left:20%;width:60%;top:-100%;height:50%;background:url('images/bowserwheel.png');background-size:100% 100%;">
       <div class="text-center row">
         <div class="col-xl-12" style="position:absolute;top:4%;height:12%;width:90%;left:5%;">Bowser's Coin Potluck
         <div style="display:none;">you each give me 10 coins!</div></div>
@@ -96,13 +96,13 @@
         <div style="display:none;">everyone's coins are shuffled!</div></div>
         <div class="col-xl-12" style="position:absolute;top:44%;height:12%;width:90%;left:5%;">20 Coins for Bowser
         <div style="display:none;">you give me 20 coins!</div></div>
-        <div class="col-xl-12" style="position:absolute;top:64%;height:12%;width:90%;left:5%;">50 Coins for Bowser
-        <div style="display:none;">you give me 50 coins!</div></div>
-        <div class="col-xl-12" style="position:absolute;top:84%;height:12%;width:90%;left:5%;">Bowser Coup
-        <div style="display:none;">General Guy overthrows the government!</div></div>
+        <div class="col-xl-12" style="position:absolute;top:64%;height:12%;width:90%;left:5%;">20 Coins for Bowser
+        <div style="display:none;">you give me 20 coins!</div></div>
+        <div class="col-xl-12" style="position:absolute;top:84%;height:12%;width:90%;left:5%;">Bowser Blitz
+        <div style="display:none;">you give me a star and have to drink!</div></div>
       </div>
     </div>
-    <div id="dialog-box" class="clickable" style="user-select:none;display:none;background-color:#3B4099E6;position:absolute;top:40%;height:20%;left:27%;width:46%;padding:3px;">
+    <div id="dialog-box" class="clickable" style="font-weight:bold;user-select:none;display:none;background-color:#3B4099E6;position:absolute;top:40%;height:20%;left:27%;width:46%;padding:3px;">
     
     </div>
     <img id="text-pointer" class="clickable" src="images/bowserpointer.png" style="display:none;position:absolute;top:55%;left:69%;width:3.2%;height:2.7%;">
@@ -118,21 +118,71 @@
   checkFontSize();
   function checkFontSize() {
     var width = Number($("#bowserimg").css("width").replace("px",""));
-    if (width >719) $("#dialog-box").css("font-size", "18.5px");
-    else $("#dialog-box").css("font-size", "2.4vw");
+    if (width >719) {
+      $("#dialog-box").css("font-size", "18.5px");
+      $("#bowserwheel").css("font-size", "18.5px");
+    }
+    else {
+      $("#dialog-box").css("font-size", "2.4vw");
+      $("#bowserwheel").css("font-size", "2.4vw");
+    }
   }
   
 	if (broName == "")
 		window.location.assign("welcome.html");
 		
 	var characterName="";
+  var noCoins = false;
+  var lastPlace = false;
   getBros(function (fullNames, names, characters) {
     
     var index = fullNames.findIndex(function(name){return name == broName});
-    characterName = characters[index].toUpperCase();
+    //characterName = characters[index].toUpperCase();
     //$("#characterName > strong").html(characterName);
     $("#broDisplay").html("Welcome, "+names[index]+"!");
-    $(".character-name").html(characterName.toUpperCase());
+    //$(".character-name").html(characterName.toUpperCase());
+  });
+  
+  var dialogs = [
+  'Gwah, hah, hah! I was<br>hoping I\'d see you, <span class="character-name">WARIO</span>.',
+  "So, what frighteningly<br>fun event will we have<br>this time? Gwah, hah, hah!",
+  "Step right up and let the<br>roulette decide your fate!",
+  "spinWheel",
+  '<span id="event-result" style="color:#D15F4D;"></span> it is!!!',
+  'In this event, <span class="event-description"></span>',
+  'Thank you for joining me<br>in this wonderful event!',
+  'See you later!<br>Gwah, hah, hah, HAH!'
+  ];
+  
+  getEventData(function (data) {
+    //characterName = data.character;
+    //noCoins = data.noCoins;
+    //lastPlace = data.lastPlace;
+    characterName = "LUIGI";
+    noCoins = false;
+    lastPlace = false;
+    
+    if (lastPlace) {
+      dialogs = [
+        'Gwah, hah, hah! I was<br>hoping I\'d see you, <span class="character-name">WARIO</span>.',
+        "So, what frighteningly<br>fun event will we... wait.",
+        "Jesus, you're in last place.",
+        "I know this game is random, but goddamn.",
+        '<span style="color:#D15F4D;">Bowser\'s Pity Party</span> it is!!!',
+        'In this event, <span>you get a star and 20 coins for sucking so much.</span>',
+        'Thank you for joining me<br>in this wonderful event!',
+        'See you later!<br>Gwah, hah, hah, HAH!'
+      ];
+    } else if (noCoins) {
+      var coinVal = Math.floor(Math.random()*3)*10 + 30;
+      dialogs = [
+        'Gwah, hah, hah! I was<br>hoping I\'d see you, <span class="character-name">WARIO</span>.',
+        'Wait a minute, you don\'t have any coins!',
+        'Here, take <span style="color:#D15F4D;">'+coinVal+' coins!</span>',
+        'Thank you for joining me<br>in this wonderful event!',
+        'See you later!<br>Gwah, hah, hah, HAH!'
+      ];
+    }
   });
   
   $(".fa-microphone-slash").click(function () {
@@ -147,16 +197,7 @@
     }
   });
   
-  var dialogs = [
-  'Gwah, hah, hah! I was<br>hoping I\'d see you, <span class="character-name">WARIO</span>.',
-  "So, what frighteningly<br>fun event will we have<br>this time? Gwah, hah, hah!",
-  "Step right up and let the<br>roulette decide your fate!",
-  "spinWheel",
-  '<span id="event-result" style="color:#D15F4D;"></span> it is!!!',
-  'In this event, <span class="event-description"></span>',
-  'Thank you for joining me<br>in this wonderful event!',
-  'See you later!<br>Gwah, hah, hah, HAH!'
-  ];
+  
   
   var index = -1;
   
@@ -179,6 +220,8 @@
     } else {
       $("#dialog-box").html(dialogs[index]);
       $(".character-name").html(characterName.toUpperCase());
+      $("#event-result").html(currentWheelSelection.html());
+      $(".event-description").html(currentWheelSelection.find("div").html());
       if (index == 5) {
         $(".event-description").html(currentWheelSelection.find("div").html());
       }
