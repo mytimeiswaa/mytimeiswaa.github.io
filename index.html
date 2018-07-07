@@ -52,6 +52,7 @@
       <li><a href="character.html"><img src="images/toadicon.png"/> Character</a></li>
       <li><a href="chancetime.html"><img src="images/chanceTime.png"/> ???</a></li>
       <li><a href="bowser.html"><img src="images/bowserspace.png"/> Bowser</a></li>
+      <li class="event-gen" onClick="eventGen();" style="display:none;"><a href="#"><img src="images/eventgen.png"/> Event Gen</a></li>
     </ul>
   </div>
 </nav>
@@ -64,7 +65,7 @@
   	
     <div id="scorecard-template" class="row scorecard" style="display:none;">
       <div class="col-sm-12">
-        <img src="images/waluigi-portrait.png" width="64" height="64" class="character-portrait" style="position:absolute;top:5px;left:20px;"/>
+        <img src="images/waluigi.png" width="64" height="64" class="character-portrait" style="position:absolute;top:5px;left:20px;"/>
         <img src="images/starsprite.png" width="32" height="32" style="position: absolute; top:5px; left: 100px;"/>
         <img src="images/coin.png" width="32" height="32" style="position: absolute; top:40px; left: 100px;"/>
         <img src="images/transparent.png" class="mp-number mp-times" style="position:absolute; top:9px; left:135px;"/>
@@ -87,7 +88,7 @@
                              
 <script>
 	var broName = getCookie("broName");
-  
+  if (broName == "Michael H") $(".event-gen").show();
   
   
 	if (broName == "")
@@ -130,6 +131,20 @@
   });
   
   
+  
+  function eventGen() {
+    var random = Math.random();
+    var result = "No Event";
+    if (random < .1) result = "Chance Time";
+    else if (random < .4) {
+      result = "Bowser Space\n";
+      var characterRandom = Math.floor(Math.random()*11 +1);
+      var chosen = $($("#scorecard-body .character-portrait")[characterRandom]);
+      result += chosen.attr("src").replace("images/profiles/", "").replace(".png", "").toUpperCase();
+    }
+    alert(result);
+    
+  }
 </script>
 
 </body>
