@@ -1,5 +1,7 @@
 {
 	"character": "LUIGI",
 	"noCoins": false,
-	"lastPlace": false
+	"lastPlace": false,
+  "starCost": 20,
+  "starLimit":5
 }

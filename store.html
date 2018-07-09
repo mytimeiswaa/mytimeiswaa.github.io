@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Broball Summit</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="scripts/cookie.js"></script>
+  <script src="scripts/brodata.js"></script>
+  <link rel="stylesheet" href="theme.css">
+  <link rel="icon" href="images/favicon.png">
+  
+  <style>
+  	body {
+    	/*background: url("https://i.giphy.com/media/peAFQfg7Ol6IE/giphy.webp"), rgb(0,0,0);*/
+      background: rgb(0,0,0);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    body, html {
+    	height: 100%;
+    }
+    .jumbotron {
+    	background: none;
+    }
+    
+    .text-white {
+    	color: rgb(200,200,200);
+    }
+    
+    .navbar-nav > li {
+      font-weight: bold;
+    }
+    
+    .star-anim {
+      animation: staranim 3s ease-in-out infinite;
+    }
+    
+    @keyframes staranim {
+      0% {top:0px;}
+      /*25% {top:40px;}*/
+      50% {top: 40px;}
+      /*75% {top: 40px;}*/
+      100% {top:0px;}
+    }
+    
+  </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Broball Summit</a>
+      <p id="broDisplay" class="navbar-brand pull-right"></p>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.html"><img src="images/starspace.png"/> Scores</a></li>
+      <li><a href="minigames.html"><img src="images/minigame.png"/> Mini-games</a></li>
+      <li><a href="character.html"><img src="images/toadicon.png"/> Character</a></li>
+      <li class="active"><a href="#"><img src="images/starspace.png"/> Star Space</a></li>
+      <li><a href="chancetime.html"><img src="images/chanceTime.png"/> ???</a></li>
+      <li><a href="bowser.html"><img src="images/bowserspace.png"/> Bowser</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container text-white">
+  
+  <h2 class="text-white">Star Space</h2>
+  
+  <div class="row">
+    <div class="col-xl-12 col-sm-12 text-center" style="position:relative;">
+      <img class="star-anim" style="object-fit:contain;width:80%;position:absolute;left:10%;" src="images/milleniumstar.png">
+      <img style="width:80%;left:10%;visibility:hidden;" src="images/milleniumstar.png">
+    </div>
+    
+    <div class="col-xl-12 col-sm-12 text-center" style="position:relative;top:70px;">
+      <h3>Star cost <span id="star-cost" style="font-weight:bold;color:red;"></span></h3>
+      <h3>Star limit <span id="star-limit" style="font-weight:bold;color:red;"></span></h3>
+      
+    </div>
+  </div>
+  
+  
+</div>
+                             
+<script>
+	var broName = getCookie("broName");
+  
+	if (broName == "")
+		window.location.assign("welcome.html");
+		
+	
+  
+  
+  getBros(function (fullNames, names, characters) {
+  
+    var broIndex = fullNames.findIndex(function (bruh) {
+      return bruh == broName;
+    });
+    $("#broDisplay").html("Welcome, "+names[broIndex]+"!");
+    
+    
+  });
+  
+  getEventData(function (data) {
+    $("#star-cost").html(data.starCost);
+  });
+  
+</script>
+
+</body>
+</html>

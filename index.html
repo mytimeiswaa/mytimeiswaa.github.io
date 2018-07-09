@@ -50,9 +50,11 @@
       <li class="active"><a href="#"><img src="images/starspace.png"/> Scores</a></li>
       <li><a href="minigames.html"><img src="images/minigame.png"/> Mini-games</a></li>
       <li><a href="character.html"><img src="images/toadicon.png"/> Character</a></li>
+      <li><a href="store.html"><img src="images/starspace.png"/> Star Space</a></li>
       <li><a href="chancetime.html"><img src="images/chanceTime.png"/> ???</a></li>
       <li><a href="bowser.html"><img src="images/bowserspace.png"/> Bowser</a></li>
       <li class="event-gen" onClick="eventGen();" style="display:none;"><a href="#"><img src="images/eventgen.png"/> Event Gen</a></li>
+      <li class="event-gen" onClick="hiddenBlock();" style="display:none;"><a href="#"><img width="32" height="32" src="images/hiddenblock.png"/> Hidden Block</a></li>
     </ul>
   </div>
 </nav>
@@ -145,6 +147,17 @@
     }
     alert(result);
     
+  }
+  
+  function hiddenBlock() {
+    var random = Math.random();
+    var result = "";
+    if (random < .1) result = "Star";
+    else if (random < .25) result = "10 Coins";
+    else if (random < .5) result = "30 Coins";
+    else result = "20 Coins";
+    
+    alert("Hidden Block Result\n"+result);
   }
 </script>
 
