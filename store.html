@@ -81,8 +81,8 @@
     </div>
     
     <div class="col-xl-12 col-sm-12 text-center" style="position:relative;top:70px;">
-      <h3>Star cost <span id="star-cost" style="font-weight:bold;color:red;"></span></h3>
-      <h3>Star limit <span id="star-limit" style="font-weight:bold;color:red;"></span></h3>
+      <h3>Star cost <span id="star-cost" style="font-weight:bold;color:yellow;"></span></h3>
+      <h3>Star limit <span id="star-limit" style="font-weight:bold;color:yellow;"></span></h3>
       
     </div>
   </div>
@@ -110,7 +110,8 @@
   });
   
   getEventData(function (data) {
-    $("#star-cost").html(data.starCost);
+    $("#star-cost").html(data.starCost+" Coins");
+    $("#star-limit").html(data.starLimit);
   });
   
 </script>
