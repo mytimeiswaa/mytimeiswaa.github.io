@@ -12,7 +12,7 @@ coin3;Propose a Unanimously Approved Team
 coin3;Propose a Unanimously Disapproved Team
 coin3;Successfully Get Assassinated as the Bodyguard 
 coin-5;Accidentally Reveal Your Card
-#Telestrations;false
+#Telestrations;true
 coin5;Correctly Getting Around the Group (Everyone gets coins)
 coin3;Funniest Drawing
 coin3;6 Degrees of Dong (Turning something non sexual into a penis)
@@ -24,7 +24,7 @@ coin5;Team Victory
 coin10;Get >10 in a Round
 coin-3;Get <3 in a Round 
 coin10;Sweep All 3 Rounds
-#Halo;false
+#Halo;true
 coin5;Team Victory
 coin5;Weapon or Vehicle-Specific Spree (once per play session)
 coin3;Stop an Ives Spree
@@ -56,7 +56,7 @@ coin20;Winner
 ztar;Puking
 coin5;Each Beer Finished
 coin3;Complete a Lap Around the Course
-#Jackbox;false
+#Jackbox;true
 coin5;Best Score
 coin5;Most Popular Answers
 coin3;Get All Votes (Quiplash/TKO) (once per play session)
