@@ -1,10 +1,10 @@
-#Zap Zone;false
+#Zap Zone;true
 coin5;Best Individual Score
 coin5;Worst Individual Score
 coin10;Team Victory
 coin3;Most Assasinations (Shots in the Back)
 coin3;Tag an Opposing Bro >5 Times in a Match
-#Resistance(Avalon);false
+#Resistance(Avalon);true
 coin5;Team Victory
 coin5;Successfully Assassinate Merlin
 coin-5;Multiple Fails on the 1st Mission
@@ -19,7 +19,7 @@ coin3;6 Degrees of Dong (Turning something non sexual into a penis)
 coin5;Write Down the Correct Answer After Someone Guessed Incorrectly Earlier in the Cycle
 coin3;Correctly Identifying a Matt Drawing (once per play session)
 coin10;Choosing the Same Secret Phrase as Someone Else (once per play session)
-#Monikers;false
+#Monikers;true
 coin5;Team Victory
 coin10;Get >10 in a Round
 coin-3;Get <3 in a Round 
@@ -37,21 +37,21 @@ ztar;Drive the Elephant Into the Wreckage on Sandtrap
 coin3;Warthog Splatter
 coin3;Bulltrue!
 coin3;Kill From the Grave
-#Kings;false
+#Kings;true
 coin3;Trick >2 People as Question Master
 ztar;Puking
 coin-3;Immediately Failing at Categories
-#Beer Pong;false
+#Beer Pong;true
 coin5;Team Victory
 coin10;Every Member of the Team Makes it on the Same Turn
 ztar;Puking
 star;Hitting a Trick Shot
-#Flip Cup;false
+#Flip Cup;true
 coin3;Team Victory
 coin-5;Losing Before Your Team Finishes a Cup
 coin5;Getting the Cup on the First Try (once per play session)
 ztar;Puking
-#True American;false
+#True American;true
 coin20;Winner
 ztar;Puking
 coin5;Each Beer Finished
@@ -61,25 +61,25 @@ coin5;Best Score
 coin5;Most Popular Answers
 coin3;Get All Votes (Quiplash/TKO) (once per play session)
 coin3;Win as the Faker
-#7 Wonders;false
+#7 Wonders;true
 coin5;Winning
 coin-5;Under 40 points
 coin10;Over 100 points
 coin3;Full 18 Points for Military
 coin3;Trade with Both Neighbors in One Turn (Can only get credit once per game)
-#Dominion;false
+#Dominion;true
 coin5;Winning
 coin3;Play a Sequence of >4 Action Cards (can only get credit once per game)
 coin3;>4 Curse Cards at the End of the Game
 coin-5;Finishing with a score <0
 coin3;No Coppers In Your Hand at End of Game
-#Wizard;false
+#Wizard;true
 coin10;Winning 
 coin5;Only person not to bust in a round
 coin10;Make a bet of 5 or more
 coin3;Miss Your Bet by >1
 coin5;Make Your Bet as the Dealer in the First Round
-#Mario Party 3;false
+#Mario Party 3;true
 star;Winning
 coin20;Winning if you are not Ives or Haling
 star;Winning if you are not Ives or Haling
@@ -88,12 +88,12 @@ coin5;Landing on Chance Time
 coin3;Land on a star space with <20 Coins
 coin30;Win the Biggest Game Guy Prize
 coin10;Steal a Star
-#Spelunky;false
+#Spelunky;true
 star;Successfull Hell Run
 coin5;Beat Olmec
 coin-3;Murder a Fellow Spelunker
 coin3;Win Deathmatch
-#Melee;false
+#Melee;true
 coin5;Kamikaze an Opponent by Diving off the Stage with Them
 coin5;Crowd Chants Your Name (once per play session)
 coin5;Successful Falcon Knee Spike (once per play session)
