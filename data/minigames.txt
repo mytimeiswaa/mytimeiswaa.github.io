@@ -38,9 +38,10 @@ coin3;Warthog Splatter
 coin3;Bulltrue!
 coin3;Kill From the Grave
 #Kings;true
-coin3;Trick >2 People as Question Master
 ztar;Puking
 coin-3;Immediately Failing at Categories
+coin3;Draw the same card as the previous person
+coin3;Take a drink in 4 or more consecutive rounds (twice per session)
 #Beer Pong;true
 coin5;Team Victory
 coin10;Every Member of the Team Makes it on the Same Turn
