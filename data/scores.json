@@ -31,7 +31,7 @@
   },
   "Donkey Kong"   : {
     "stars" : 0,
-    "coins" : 10,
+    "coins" : 50,
     "sort"  : 5
   },
   "Shy Guy"   : {
@@ -41,17 +41,17 @@
   },
   "Peach"   : {
     "stars" : 0,
-    "coins" : 10,
+    "coins" : 60,
     "sort"  : 3
   },
   "Blooper"   : {
-    "stars" : 0,
-    "coins" : 13,
+    "stars" : 1,
+    "coins" : 23,
     "sort"  : 2
   },
   "Dry Bones"   : {
     "stars" : 0,
-    "coins" : 13,
+    "coins" : 43,
     "sort"  : 1
   }
 }
