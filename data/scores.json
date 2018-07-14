@@ -11,7 +11,7 @@
   },
   "Boo"   : {
     "stars" : 0,
-    "coins" : 15,
+    "coins" : 25,
     "sort"  : 9
   },
   "Koopa Kid"   : {
@@ -51,7 +51,7 @@
   },
   "Dry Bones"   : {
     "stars" : 0,
-    "coins" : 43,
+    "coins" : 33,
     "sort"  : 1
   }
 }
