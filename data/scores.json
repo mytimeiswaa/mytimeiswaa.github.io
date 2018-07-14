@@ -1,52 +1,52 @@
 {
   "Waluigi" : {
     "stars" : 1,
-    "coins" : 17,
+    "coins" : 32,
     "sort"  : 11
   },
   "Luigi"   : {
     "stars" : 1,
-    "coins" : 20,
+    "coins" : 30,
     "sort"  : 10
   },
   "Boo"   : {
     "stars" : 0,
-    "coins" : 25,
+    "coins" : 50,
     "sort"  : 9
   },
   "Koopa Kid"   : {
     "stars" : 1,
-    "coins" : 20,
+    "coins" : 30,
     "sort"  : 8
   },
   "Toadette"   : {
     "stars" : 1,
-    "coins" : 14,
+    "coins" : 19,
     "sort"  : 7
   },
   "Wario"   : {
     "stars" : 0,
-    "coins" : 15,
+    "coins" : 25,
     "sort"  : 6
   },
   "Donkey Kong"   : {
     "stars" : 0,
-    "coins" : 50,
+    "coins" : 70,
     "sort"  : 5
   },
   "Shy Guy"   : {
     "stars" : 0,
-    "coins" : 15,
+    "coins" : 45,
     "sort"  : 4
   },
   "Peach"   : {
     "stars" : 0,
-    "coins" : 60,
+    "coins" : 95,
     "sort"  : 3
   },
   "Blooper"   : {
     "stars" : 1,
-    "coins" : 23,
+    "coins" : 33,
     "sort"  : 2
   },
   "Dry Bones"   : {
