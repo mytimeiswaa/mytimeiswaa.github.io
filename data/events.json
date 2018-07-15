@@ -1,7 +1,7 @@
 {
-	"character": "LUIGI",
+	"character": "WARIO",
 	"noCoins": false,
-	"lastPlace": false,
+	"lastPlace": true,
   "starCost": 20,
   "starLimit":5
 }
