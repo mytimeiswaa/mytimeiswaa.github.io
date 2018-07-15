@@ -1,7 +1,7 @@
 {
   "Waluigi" : {
     "stars" : 4,
-    "coins" : 80,
+    "coins" : 90,
     "sort"  : 11
   },
   "Luigi"   : {
@@ -21,7 +21,7 @@
   },
   "Toadette"   : {
     "stars" : 3,
-    "coins" : 75,
+    "coins" : 95,
     "sort"  : 7
   },
   "Wario"   : {
@@ -46,7 +46,7 @@
   },
   "Blooper"   : {
     "stars" : 4,
-    "coins" : 57,
+    "coins" : 77,
     "sort"  : 2
   },
   "Dry Bones"   : {
