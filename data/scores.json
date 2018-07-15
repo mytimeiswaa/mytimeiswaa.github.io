@@ -1,6 +1,6 @@
 {
   "Waluigi" : {
-    "stars" : 4,
+    "stars" : 3,
     "coins" : 90,
     "sort"  : 11
   },
@@ -40,7 +40,7 @@
     "sort"  : 4
   },
   "Peach"   : {
-    "stars" : 5,
+    "stars" : 6,
     "coins" : 79,
     "sort"  : 3
   },
