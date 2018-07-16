@@ -1,7 +1,7 @@
 {
-	"character": "WARIO",
+	"character": "WALUIGI",
 	"noCoins": false,
-	"lastPlace": true,
+	"lastPlace": false,
   "starCost": 20,
   "starLimit":5
 }
